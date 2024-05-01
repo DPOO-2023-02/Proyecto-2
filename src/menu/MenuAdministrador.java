@@ -158,4 +158,14 @@ public class MenuAdministrador {
         }
     }
 
+	private static void crearImpresion(Scanner scanner) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void crearFotografia(Scanner scanner) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

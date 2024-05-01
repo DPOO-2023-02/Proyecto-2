@@ -2,118 +2,38 @@ package persistencia;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-
 public class IPersistenciaLogin {
-	
-	
-	public static ArrayList<String> read_info () {
-		
-		ArrayList<String> datos = new ArrayList<>();
-		
-		File archivo = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-        String linea = null;
- 
-        try {
-
-            archivo = new File("usuario.csv");
-
-            fr = new FileReader(archivo);
-  
-            br = new BufferedReader(fr);
- 
-            while ((linea = br.readLine()) != null) {
-            	
-            	String[] strings = linea.split(";");
-            	
-            	
-            	for (int i = 0; i < strings.length; i++) {
-            		datos.add(strings[i]);
-            		
-            		System.out.println(strings[i]);
-				}
- 
-            }
-            
-            return datos;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (fr != null) {
-                    fr.close();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-		return null; 
-	}
-	
-	
-	public static String formatter(String nombre, String apellido, String cedula, String usuario, String contrasena, String contacto, int ingresos, String rol, String UltimaActualizacion) {
-
-
-	    String line = nombre + ";" + contrasena;
-
-	    return line;
-	}
-	
-    public static void add_info(String string) {
-    	
-    	
-    	BufferedWriter bw = null;
-        FileWriter fw = null;
-
-        try {
-
-            File file = new File("usuario.csv");
-            
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-           
-            fw = new FileWriter(file.getAbsoluteFile(), true);
-            bw = new BufferedWriter(fw);
-            bw.write(string);
-            System.out.println("información agregada!");
+    public static void escribirArchivo(String rutaArchivo, String usuario, String contraseña) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivo, true))) {
+            writer.write("Usuario: " + usuario);
+            writer.newLine();
+            writer.write("Contraseña: " + contraseña);
+            writer.newLine();
+            writer.write("--------------------");
+            writer.newLine();
+            System.out.println("Credenciales guardadas con éxito en el archivo.");
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                   
-                if (bw != null)
-                    bw.close();
-                if (fw != null)
-                    fw.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
         }
-    	
-
-	}
-    public static List<String> read_info(String filePath) throws IOException {
-        List<String> lines = new ArrayList<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
-        }
-
-        return lines;
     }
 
+
+    public static void leertxt(String[] args) {
+        String rutaArchivo = "credenciales.txt";
+        leerArchivo(rutaArchivo);
+    }
+
+    public static void leerArchivo(String rutaArchivo) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
 }
