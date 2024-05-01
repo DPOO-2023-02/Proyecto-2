@@ -1,40 +1,51 @@
 package piezas;
 
-public abstract class Video extends Pieza {
+import java.util.List;
 
-	public Video(String id,String titulo, int anio, String[] autores, String lugarCreacion, boolean disponibilidadVenta,
-			String[] propietariosAnteriores, String propietarioActual, String ubicacionActual) {
+public class Video extends Pieza {
+	
+	private String resolucion;
+	private String relacionImagen;
+	private boolean audio;
+	private boolean tieneColor;
+	
+	public Video(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, String resolucion, 
+			String relacionImagen, boolean audio, boolean tieneColor) {
 		super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
 				ubicacionActual);
-		
+		this.resolucion = resolucion;
+        this.setRelacionImagen(relacionImagen);
+        this.audio = audio;
+        this.setTieneColor(tieneColor);
 	}
-	private String resolucion;
-	private String relacion_imagen;
-	private boolean audio;
-	private boolean tienecolor;
+	
 	public String getResolucion() {
 		return resolucion;
 	}
 	public void setResolucion(String resolucion) {
 		this.resolucion = resolucion;
 	}
-	public String getRelacion_imagen() {
-		return relacion_imagen;
+	
+	public String getRelacionImagen() {
+		return relacionImagen;
 	}
-	public void setRelacion_imagen(String relacion_imagen) {
-		this.relacion_imagen = relacion_imagen;
+	public void setRelacionImagen(String relacionImagen) {
+		this.relacionImagen = relacionImagen;
 	}
+	
 	public boolean isAudio() {
 		return audio;
 	}
 	public void setAudio(boolean audio) {
 		this.audio = audio;
 	}
-	public boolean isColor() {
-		return tienecolor;
+
+	public boolean isTieneColor() {
+		return tieneColor;
 	}
-	public void setColor(boolean color) {
-		this.tienecolor = color;
-	}
+	public void setTieneColor(boolean tieneColor) {
+		this.tieneColor = tieneColor;
+	}	
 
 }

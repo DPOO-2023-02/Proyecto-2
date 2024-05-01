@@ -9,6 +9,7 @@ import piezas.Escultura;
 import piezas.Inventario;
 import piezas.Pieza;
 import piezas.Pintura;
+import piezas.Video;
 
 public class MenuAdministrador {
 
@@ -36,30 +37,29 @@ public class MenuAdministrador {
             switch (opcion) {
             	case 1:
             		agregarPieza(scanner);
-                break;
-            case 2:
-                System.out.println("Eliminar Pieza de inventario...");
-                // Lógica para eliminar una pieza
-                break;
-            case 3:
-                System.out.println("Consultar Inventario...");
-                // Lógica para consultar el inventario
-                break;
-            case 4:
-                System.out.println("Aprobar Pago...");
-                // Lógica para aprobar pagos
-                break;
-            case 5:
-                System.out.println("Modificar Inventario...");
-                // Lógica para modificar el inventario
-                break;
-            case 6:
-                System.out.println("Volviendo al menú principal...");
-                scanner.close();
-                return;
-            default:
-                System.out.println("Opción no válida.");
-            }
+            		break;
+                
+	            case 2:
+	                System.out.println("Eliminar Pieza de inventario...");
+	                break;
+	            case 3:
+	                System.out.println("Consultar Inventario...");
+	                break;
+	            case 4:
+	                System.out.println("Aprobar Pago...");
+	                // Lógica para aprobar pagos
+	                break;
+	            case 5:
+	                System.out.println("Modificar Inventario...");
+	                // Lógica para modificar el inventario
+	                break;
+	            case 6:
+	                System.out.println("Volviendo al menú principal...");
+	                scanner.close();
+	                return;
+	            default:
+	                System.out.println("Opción no válida.");
+	            }
         }
     }	
     private static void agregarPieza(Scanner scanner) {
@@ -97,51 +97,15 @@ public class MenuAdministrador {
 
         switch (tipoPieza) {
             case 1:
-            	System.out.println("Creando una nueva Pintura...");
-                
-                System.out.print("Ingrese el material: ");
-        	    String material = scanner.nextLine();
-        	    System.out.print("Ingrese el tamaño: ");
-        	    String tamanio = scanner.nextLine();
-        	    System.out.print("Ingrese el tipo de lienzo: ");
-        	    String lienzo = scanner.nextLine();
-        	    
-        	    Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
-        	    		new ArrayList<>(), propietarioActual, ubicacionActual, material, tamanio, lienzo);
+            	crearPintura(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
                 break;
             
             case 2:
-            	System.out.println("Creando una nueva Escultura...");
-                
-                System.out.print("Ingrese los materiales utilizados: ");
-                String material1 = scanner.nextLine();
-                
-                System.out.print("Ingrese detalles de instalación: ");
-                String detallesInstalacion = scanner.nextLine();
-                
-                System.out.print("¿Requiere electricidad? (true/false): ");
-                boolean requiereElectricidad = Boolean.parseBoolean(scanner.nextLine());
-                
-                System.out.print("Ingrese el peso: ");
-                String peso = scanner.nextLine();
-                
-                Escultura nuevaEscultura = new Escultura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
-        	    		new ArrayList<>(), propietarioActual, ubicacionActual, material1, detallesInstalacion, 
-        	    		requiereElectricidad, peso);
-                
+                crearEscultura(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
                 break;
             
             case 3:
-            	System.out.println("Creando un nuevo Video...");
-            	
-                System.out.print("Ingrese la resolución del video: ");
-                String resolucion = scanner.nextLine();
-                
-                System.out.print("¿Tiene audio? (true/false): ");
-                boolean audio = Boolean.parseBoolean(scanner.nextLine());
-                
-                System.out.print("Ingrese la relación de imagen: ");
-                String relacionImagen = scanner.nextLine();
+            	crearVideo(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
                 break;
             
             case 4:
@@ -156,6 +120,79 @@ public class MenuAdministrador {
                 System.out.println("Tipo de pieza no válido.");
                 break;
         }
+    }
+    
+    private static void crearPintura(Scanner scanner, String titulo, String anio, String autores, String lugarCreacion, 
+    		boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+    	System.out.println("Creando una nueva Pintura...");
+        
+        System.out.print("Ingrese el material: ");
+        String material = scanner.nextLine();
+        
+        System.out.print("Ingrese el tamaño: ");
+        String tamanio = scanner.nextLine();
+        
+        System.out.print("Ingrese el tipo de lienzo: ");
+        String lienzo = scanner.nextLine();
+        
+        Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
+                new ArrayList<>(), propietarioActual, ubicacionActual, material, tamanio, lienzo);
+
+        Inventario.agregarObjeto(nuevaPintura);
+        System.out.println("Pintura agregada exitosamente al inventario.");
+    }
+    
+    private static void crearEscultura(Scanner scanner, String titulo, String anio, String autores,
+    		String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+    	
+    	System.out.println("Creando una nueva Escultura...");
+        
+        System.out.print("Ingrese los materiales utilizados: ");
+        String material1 = scanner.nextLine();
+        
+        System.out.print("Ingrese detalles de instalación: ");
+        String detallesInstalacion = scanner.nextLine();
+        
+        System.out.print("¿Requiere electricidad? (true/false): ");
+        boolean requiereElectricidad = Boolean.parseBoolean(scanner.nextLine());
+        
+        System.out.print("Ingrese el peso: ");
+        String peso = scanner.nextLine();
+        
+        Escultura nuevaEscultura = new Escultura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
+	    		new ArrayList<>(), propietarioActual, ubicacionActual, material1, detallesInstalacion, 
+	    		requiereElectricidad, peso);
+		
+		Inventario.agregarObjeto(nuevaEscultura);
+		System.out.println("Escultura agregada exitosamente al inventario.");
+	}
+    
+    private static void crearVideo(Scanner scanner, String titulo, String anio, String autores, 
+            String lugarCreacion, boolean disponibilidadVenta, 
+            String propietarioActual, String ubicacionActual) {
+    	
+    	System.out.println("Creando un nuevo Video...");
+
+        System.out.print("Ingrese la resolución del video (por ejemplo, 1920x1080): ");
+        String resolucion = scanner.nextLine();
+
+        System.out.print("Ingrese la relación de imagen (por ejemplo, 16:9): ");
+        String relacionImagen = scanner.nextLine();
+
+        System.out.print("¿Tiene audio? (true/false): ");
+        boolean audio = Boolean.parseBoolean(scanner.nextLine());
+
+        System.out.print("¿Es a color? (true/false): ");
+        boolean tienecolor = Boolean.parseBoolean(scanner.nextLine());
+
+        // Crear una nueva instancia de Video
+        Video nuevoVideo = new Video(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
+                                     new ArrayList<>(), propietarioActual, ubicacionActual,
+                                     resolucion, relacionImagen, audio, tienecolor);
+
+        // Agregar el nuevo video al inventario
+        Inventario.agregarObjeto(nuevoVideo);
+        System.out.println("Video agregado exitosamente al inventario.");
     }
 
 	private static void crearImpresion(Scanner scanner) {
