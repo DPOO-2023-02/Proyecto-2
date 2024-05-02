@@ -12,8 +12,10 @@ public class Video extends Pieza {
 	public Video(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
 			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, String resolucion, 
 			String relacionImagen, boolean audio, boolean tieneColor) {
+		
 		super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
 				ubicacionActual);
+		
 		this.resolucion = resolucion;
         this.setRelacionImagen(relacionImagen);
         this.audio = audio;
