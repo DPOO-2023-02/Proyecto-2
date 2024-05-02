@@ -42,7 +42,7 @@ public class SistemaLogin {
                 }
             }
         } finally {
-            scanner.close(); // Cerrar el Scanner al finalizar
+            scanner.close(); 
         }
     }
 //:D
