@@ -23,45 +23,50 @@ public class MenuAdministrador {
 
     public static void menu() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("=== MENÚ ADMINISTRADOR ===");
-            System.out.println("1. Agregar Pieza a inventario");
-            System.out.println("2. Eliminar Pieza de inventario");
-            System.out.println("3. Consultar Inventario");
-            System.out.println("4. Aprobar Pago");
-            System.out.println("5. Modificar Inventario");
-            System.out.println("6. Volver al menú principal");
-            System.out.println("Seleccione una opción:");
+        try {
+        	while (true) {
+                System.out.println("=== MENÚ ADMINISTRADOR ===");
+                System.out.println("1. Agregar Pieza a inventario");
+                System.out.println("2. Eliminar Pieza de inventario");
+                System.out.println("3. Consultar Inventario");
+                System.out.println("4. Aprobar Pago");
+                System.out.println("5. Modificar Inventario");
+                System.out.println("6. Volver al menú principal");
+                System.out.println("Seleccione una opción:");
+                
+                int opcion = scanner.nextInt();
+                scanner.nextLine(); 
+                
+                switch (opcion) {
+    	            case 1:
+    	                agregarPieza(scanner);
+    	                break;
+    	            case 2:
+    	                eliminarPieza(scanner);
+    	                break;
+    	            case 3:
+    	                consultarInventario();
+    	                break;
+    	            case 4:
+    	                aprobarPago(scanner);
+    	                break;
+    	            case 5:
+    	                modificarInventario(scanner);
+    	                break;
+    	            case 6:
+    	                System.out.println("Volviendo al menú principal...");
+    	                return;
+    	            default:
+    	                System.out.println("Opción no válida.");
+                }
             
-            int opcion = scanner.nextInt();
-            scanner.nextLine(); 
-            
-            switch (opcion) {
-	            case 1:
-	                agregarPieza(scanner);
-	                break;
-	            case 2:
-	                eliminarPieza(scanner);
-	                break;
-	            case 3:
-	                consultarInventario();
-	                break;
-	            case 4:
-	                aprobarPago(scanner);
-	                break;
-	            case 5:
-	                modificarInventario(scanner);
-	                break;
-	            case 6:
-	                System.out.println("Volviendo al menú principal...");
-	                scanner.close();
-	                return;
-	            default:
-	                System.out.println("Opción no válida.");
             }
+        
+        } finally {
+        	scanner.close();
         }
-    }	
     
+    }	
     
     //Agregar Pieza
     
@@ -241,9 +246,9 @@ public class MenuAdministrador {
 	}
 	
 	
-	//Eliminar Pieza
+		//Eliminar Pieza
 	
-	private static void eliminarPieza(Scanner scanner) {
+private static void eliminarPieza(Scanner scanner) {
         System.out.println("Ingrese el título de la pieza a eliminar:");
         String titulo = scanner.nextLine();
         Pieza pieza = Inventario.buscarObjeto(titulo);
@@ -254,7 +259,6 @@ public class MenuAdministrador {
             System.out.println("No se encontró la pieza.");
         }
     }
-	
 	
 	//Consultar Inventario
 	
@@ -270,12 +274,10 @@ public class MenuAdministrador {
         }
     }
 	
-	
 	// Aprobar Pago
 	private static void aprobarPago(Scanner scanner) {
         // Implementar lógica para aprobar pagos
     }
-
 
 	// Modificar Inventario
 	private static void modificarInventario(Scanner scanner) {
