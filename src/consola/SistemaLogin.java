@@ -13,7 +13,7 @@ public class SistemaLogin {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        crearArchivoTxt(ARCHIVO_USUARIOS); // Crear el archivo de usuarios si no existe
+        crearArchivoTxt(ARCHIVO_USUARIOS);
         cargarUsuarios();
 
         try {
@@ -35,14 +35,14 @@ public class SistemaLogin {
                         break;
                     case 3:
                         System.out.println("Saliendo del sistema...");
-                        guardarUsuarios(); // Guardar usuarios antes de salir
+                        guardarUsuarios();
                         return;
                     default:
                         System.out.println("Opción no válida.");
                 }
             }
         } finally {
-            scanner.close(); // Cerrar el Scanner al finalizar
+            scanner.close(); 
         }
     }
 //:D
@@ -65,10 +65,8 @@ public class SistemaLogin {
                     System.out.println("¡Bienvenido, Cajero!");
                     MenuCajero.menu();
                     break;
-                // Agrega casos para otros tipos de usuarios
                 default:
                     System.out.println("¡Bienvenido!");
-                    // Implementa el código para otros tipos de usuarios si es necesario
             }
         } else {
             System.out.println("Nombre de usuario o contraseña incorrectos.");
@@ -86,17 +84,17 @@ public class SistemaLogin {
         String tipoUsuario = scanner.nextLine();
 
         usuarios.put(nuevoUsuario, new String[]{nuevaContraseña, tipoUsuario});
-        guardarUsuarios(); // Guardar el nuevo usuario en el archivo
+        guardarUsuarios();
 
         System.out.println("Usuario registrado con éxito.");
     }
-
+//Persistencia Usuario y contraseña
     private static void cargarUsuarios() {
         try (Scanner fileScanner = new Scanner(new File(ARCHIVO_USUARIOS))) {
             while (fileScanner.hasNextLine()) {
                 String linea = fileScanner.nextLine();
                 String[] partes = linea.split(",");
-                if (partes.length == 3) { // Verificar que haya tres partes en la línea
+                if (partes.length == 3) {
                     usuarios.put(partes[0], new String[]{partes[1], partes[2]});
                 } else {
                     System.err.println("Formato de usuario incorrecto en línea: " + linea);
@@ -132,4 +130,3 @@ public class SistemaLogin {
         }
     }
 }
-
