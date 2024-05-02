@@ -29,5 +29,10 @@ public class Inventario {
             }
         }
         return null;
-    }   
+    }
+
+	public static List<Pieza> getPiezas() {
+		// TODO Auto-generated method stub
+		return null;
+	}   
 }

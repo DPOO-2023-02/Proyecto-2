@@ -1,14 +1,26 @@
 package piezas;
 
-public abstract class Fotografia extends Pieza{
-	public Fotografia(String id,String titulo, int anio, String[] autores, String lugarCreacion, boolean disponibilidadVenta,
-			String[] propietariosAnteriores, String propietarioActual, String ubicacionActual) {
+import java.util.List;
+
+public class Fotografia extends Pieza{
+	
+	private String resolucion;
+	private String relacionImagen;
+    private boolean tieneColor;
+    private boolean esDigital;
+	
+    public Fotografia(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, String resolucion,
+			String relacionImagen, boolean tieneColor, boolean esDigital) {
 		super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
 				ubicacionActual);
+		
+		this.resolucion = resolucion;
+        this.relacionImagen = relacionImagen;
+        this.tieneColor = tieneColor;
+        this.esDigital = esDigital;
+        
 	}
-	private String resolucion;
-	private boolean tienecolor;
-	private String relacion_imagen;
 
 	public String getResolucion() {
 		return resolucion;
@@ -17,18 +29,25 @@ public abstract class Fotografia extends Pieza{
 		this.resolucion = resolucion;
 	}
 
-	public String getRelacion_imagen() {
-		return relacion_imagen;
+	public String getRelacionImagen() {
+		return relacionImagen;
+	}
+	public void setRelacionImagen(String relacionImagen) {
+		this.relacionImagen = relacionImagen;
 	}
 
-	public void setRelacion_imagen(String relacion_imagen) {
-		this.relacion_imagen = relacion_imagen;
+	public boolean isTieneColor() {
+		return tieneColor;
 	}
-	public boolean isTienecolor() {
-		return tienecolor;
+	public void setTieneColor(boolean tieneColor) {
+		this.tieneColor = tieneColor;
 	}
-	public void setTienecolor(boolean tienecolor) {
-		this.tienecolor = tienecolor;
+
+	public boolean isEsDijital() {
+		return esDigital;
+	}
+	public void setEsDijital(boolean esDijital) {
+		this.esDigital = esDijital;
 	}
 
 }

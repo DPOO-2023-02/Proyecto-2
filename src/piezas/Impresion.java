@@ -1,33 +1,53 @@
 package piezas;
 
-public abstract class Impresion extends Pieza{
+import java.util.List;
 
-	public Impresion(String id,String titulo, int anio, String[] autores, String lugarCreacion, boolean disponibilidadVenta,
-			String[] propietariosAnteriores, String propietarioActual, String ubicacionActual) {
-		super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
-				ubicacionActual);
-	}
-	private String resolucion;
-	private String material;
-	private boolean tienecolor;
-	
-	public String getResolucion() {
-		return resolucion;
-	}
-	public void setResolucion(String resolucion) {
-		this.resolucion = resolucion;
-	}
-	public String getMaterial() {
-		return material;
-	}
-	public void setMaterial(String material) {
-		this.material = material;
-	}
-	public boolean isTienecolor() {
-		return tienecolor;
-	}
-	public void setTienecolor(boolean tienecolor) {
-		this.tienecolor = tienecolor;
-	}
-	
+public class Impresion extends Pieza {
+    
+    private String resolucion;
+    private String material;
+    private String relacionImagen;
+    private boolean tieneColor;
+    
+    public Impresion(String titulo, String anio, String autores, String lugarCreacion, 
+                     boolean disponibilidadVenta, List<String> propietariosAnteriores, 
+                     String propietarioActual, String ubicacionActual, String resolucion, 
+                     String material, String relacionImagen, boolean tieneColor) {
+    	
+        super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, 
+              propietarioActual, ubicacionActual);
+        
+        this.resolucion = resolucion;
+        this.material = material;
+        this.relacionImagen = relacionImagen;
+        this.tieneColor = tieneColor;
+    }
+    
+    public String getResolucion() {
+        return resolucion;
+    }
+    public void setResolucion(String resolucion) {
+        this.resolucion = resolucion;
+    }
+    
+    public String getMaterial() {
+        return material;
+    }
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public String getRelacionImagen() {
+        return relacionImagen;
+    }
+    public void setRelacionImagen(String relacionImagen) {
+        this.relacionImagen = relacionImagen;
+    }
+
+    public boolean isTieneColor() {
+        return tieneColor;
+    }
+    public void setTieneColor(boolean tieneColor) {
+        this.tieneColor = tieneColor;
+    }
 }
