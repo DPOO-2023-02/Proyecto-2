@@ -11,11 +11,11 @@ public class Escultura extends Pieza {
     private String peso;
 
     public Escultura(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
-            List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, String material, 
-            String detalleInstalacion, boolean requiereElectricidad, String peso, String dimensiones) {
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, double precio, 
+            String material, String detalleInstalacion, boolean requiereElectricidad, String peso, String dimensiones) {
         
         super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
-                ubicacionActual);
+                ubicacionActual, precio);
         
         this.material = material;
         this.detalleInstalacion = detalleInstalacion;

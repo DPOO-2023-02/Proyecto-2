@@ -20,7 +20,7 @@ public class Administrador extends Usuario {
 		this.verificado = verificado;
 	}
 
-//Agregar Pieza
+	//Agregar Pieza
     
     public static void agregarPieza(Scanner scanner) {
         System.out.println("Introduzca el título de la pieza: ");
@@ -43,7 +43,10 @@ public class Administrador extends Usuario {
 
         System.out.println("Introduzca la ubicación actual de la pieza: ");
         String ubicacionActual = scanner.nextLine();
-
+        
+        System.out.println("Introduzca la ubicación actual de la pieza: ");
+        double precio = scanner.nextDouble();
+        
         
         System.out.println("Seleccione el tipo de pieza a crear:");
         System.out.println("1. Pintura");
@@ -57,19 +60,19 @@ public class Administrador extends Usuario {
 
         switch (tipoPieza) {
 	        case 1:
-	            crearPintura(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
+	            crearPintura(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual, precio);
 	            break;
 	        case 2:
-	            crearEscultura(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
+	            crearEscultura(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual, precio);
 	            break;
 	        case 3:
-	            crearVideo(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
+	            crearVideo(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual, precio);
 	            break;
 	        case 4:
-	            crearFotografia(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
+	            crearFotografia(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual, precio);
 	            break;
 	        case 5:
-	            crearImpresion(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual);
+	            crearImpresion(scanner, titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietarioActual, ubicacionActual, precio);
 	            break;
 	        default:
 	            System.out.println("Tipo de pieza no válido.");
@@ -79,7 +82,7 @@ public class Administrador extends Usuario {
     }
     
     public static void crearPintura(Scanner scanner, String titulo, String anio, String autores, 
-    		String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+    		String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual, double precio) {
     	
     	System.out.println("Creando una nueva Pintura...");
         
@@ -93,13 +96,13 @@ public class Administrador extends Usuario {
         String lienzo = scanner.nextLine();
         
         Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
-                new ArrayList<>(), propietarioActual, ubicacionActual, material, tamanio, lienzo);
+                new ArrayList<>(), propietarioActual, ubicacionActual, precio, material, tamanio, lienzo);
 
         Inventario.agregarObjeto(nuevaPintura);
         System.out.println("Pintura agregada exitosamente al inventario.");
     }
     public static void crearEscultura(Scanner scanner, String titulo, String anio, String autores, 
-            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual, double precio) {
 		
     	System.out.println("Creando una nueva Escultura...");
 		
@@ -120,13 +123,13 @@ public class Administrador extends Usuario {
 		
 		Escultura nuevaEscultura = new Escultura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
 		                      new ArrayList<>(), propietarioActual, ubicacionActual, 
-		                      materiales, detallesInstalacion, requiereElectricidad, peso, dimensiones);
+		                      precio, materiales, detallesInstalacion, requiereElectricidad, peso, dimensiones);
 		
 		Inventario.agregarObjeto(nuevaEscultura);
 		System.out.println("Escultura agregada exitosamente al inventario.");
 	}
     public static void crearVideo(Scanner scanner, String titulo, String anio, String autores, 
-            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual, double precio) {
     	
     	System.out.println("Creando un nuevo Video...");
 
@@ -145,14 +148,14 @@ public class Administrador extends Usuario {
         
         Video nuevoVideo = new Video(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                                      new ArrayList<>(), propietarioActual, ubicacionActual,
-                                     resolucion, relacionImagen, audio, tienecolor);
+                                     precio, resolucion, relacionImagen, audio, tienecolor);
 
         
         Inventario.agregarObjeto(nuevoVideo);
         System.out.println("Video agregado exitosamente al inventario.");
     }
     public static void crearFotografia(Scanner scanner, String titulo, String anio, String autores, 
-            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual, double precio) {
     	
         System.out.println("Creando una nueva Fotografía...");
         
@@ -169,13 +172,13 @@ public class Administrador extends Usuario {
         boolean esDigital = Boolean.parseBoolean(scanner.nextLine());
         
         Fotografia nuevaFotografia = new Fotografia(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
-                new ArrayList<>(), propietarioActual, ubicacionActual, resolucion, relacionImagen, tieneColor, esDigital);
+                new ArrayList<>(), propietarioActual, ubicacionActual, precio, resolucion, relacionImagen, tieneColor, esDigital);
         
         Inventario.agregarObjeto(nuevaFotografia);
         System.out.println("Fotografía agregada exitosamente al inventario.");
     }	
     public static void crearImpresion(Scanner scanner, String titulo, String anio, String autores, 
-            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual) {
+            String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual, double precio) {
 		
 		System.out.println("Creando una nueva Impresión...");
 		
@@ -193,7 +196,7 @@ public class Administrador extends Usuario {
 		
 		Impresion nuevaImpresion = new Impresion(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
 												new ArrayList<>(), propietarioActual, ubicacionActual, 
-												resolucion, material, relacionImagen, tieneColor);
+												precio, resolucion, material, relacionImagen, tieneColor);
 		
 		Inventario.agregarObjeto(nuevaImpresion);
 		System.out.println("Impresión agregada exitosamente al inventario.");

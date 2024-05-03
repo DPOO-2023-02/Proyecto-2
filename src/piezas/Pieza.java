@@ -13,10 +13,10 @@ public abstract class Pieza {
 	private String propietarioActual;
 	private String ubicacionActual;
 	private boolean subastable;
+	private double precio;
 
 	public Pieza(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
-			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual) {
-	
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, double precio) {
 	}
 	public String getId() {
 		return id;
@@ -77,5 +77,11 @@ public abstract class Pieza {
 	}
 	public void setSubastable(boolean subastable) {
 		this.subastable = subastable;
+	}
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
 }

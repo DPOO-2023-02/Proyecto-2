@@ -9,11 +9,11 @@ public class Pintura extends Pieza {
 	private String lienzo;
 
 	public Pintura(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
-                   List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual,
-                   String material, String tamanio, String lienzo) {
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, double precio,
+            String material, String tamanio, String lienzo) {
 		
 		super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
-				ubicacionActual);
+				ubicacionActual, precio);
 		
 		this.material = material;
 		this.tamanio = tamanio;
