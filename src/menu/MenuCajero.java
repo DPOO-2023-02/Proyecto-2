@@ -1,7 +1,6 @@
 package menu;
 import usuarios.Cajero;
 import java.util.Scanner;
-
 public class MenuCajero {
 
 	public static void menu() {
@@ -25,7 +24,7 @@ public class MenuCajero {
 	                break;
 	            case 2:
 	                System.out.println("Cambiando comprador...");
-	                Cajero.ConfirmarPago();
+	                Cajero.CambiarComprador();
 	                break;
 	            case 3:
 	                System.out.println("Volviendo al menú principal...");

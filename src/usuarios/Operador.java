@@ -13,7 +13,7 @@ public class Operador extends Usuario {
 	private Pieza pieza;
 	
 	public Operador(String nombre, String id, String contrasenia) {
-		super(nombre, id, contrasenia);
+		super(nombre, id, contrasenia,0);
 		this.listaPujas = new ArrayList<Double>();
 		this.subastaActual = new Subasta(Subasta.valorInicial , Subasta.valorMinimo, pieza);
 	}

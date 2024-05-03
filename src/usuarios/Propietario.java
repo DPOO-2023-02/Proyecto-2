@@ -5,7 +5,7 @@ import java.util.Date;
 public class Propietario extends Usuario{
 	public ArrayList<String> listapiezas;
 	public Propietario(String nombre, String id, String contrasenia, Date cumpleanios, String rol) {
-		super(nombre, id, contrasenia);
+		super(nombre, id, contrasenia,0);
 		// TODO Auto-generated constructor stub
 	}
 	public static void vender() {

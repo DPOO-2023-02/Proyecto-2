@@ -4,13 +4,14 @@ public abstract class Usuario {
 	private String nombre;
 	private String id;
 	private String contrasenia;
+	private int dinero;
 
-	public Usuario(String nombre, String id, String contrasenia) {
-		this.setNombre(nombre);
-		this.setId(id);
-		this.setContrasenia(contrasenia);
-
-	}
+	public Usuario(String nombre, String id, String contrasenia,int dinero) {
+		this.nombre=nombre;
+		this.id=id;
+		this.contrasenia=contrasenia;
+		this.dinero=dinero;
+	}	
 
 	public String getNombre() {
 		return nombre;
@@ -18,7 +19,7 @@ public abstract class Usuario {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}	
 
 	public String getId() {
 		return id;
@@ -35,4 +36,16 @@ public abstract class Usuario {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
+
+	public int getDinero() {
+		return dinero;
+	}
+
+	public void setDinero(int dinero) {
+		this.dinero = dinero;
+	}
+	public void restarDinero(double cantidad) {
+        dinero -= cantidad;
+    }
+
 }

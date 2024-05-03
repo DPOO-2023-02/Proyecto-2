@@ -1,3 +1,4 @@
+tomas,321,administrador
 juan,123,cajero
 juanito,123,administrador
 julisns,1234,cajero
