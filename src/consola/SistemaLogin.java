@@ -49,7 +49,7 @@ public class SistemaLogin {
     private static void iniciarSesion(Scanner scanner) {
         System.out.println("Ingrese su nombre de usuario:");
         String usuario = scanner.nextLine();
-        System.out.println("Ingrese su contraseña:");
+        System.out.println("Ingrese su contraseña:");  
         String contraseña = scanner.nextLine();
 
         if (usuarios.containsKey(usuario) && usuarios.get(usuario)[0].equals(contraseña)) {

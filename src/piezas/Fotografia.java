@@ -10,10 +10,10 @@ public class Fotografia extends Pieza{
     private boolean esDigital;
 	
     public Fotografia(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
-			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, String resolucion,
-			String relacionImagen, boolean tieneColor, boolean esDigital) {
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, double precio,
+			String resolucion, String relacionImagen, boolean tieneColor, boolean esDigital) {
 		super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, propietarioActual,
-				ubicacionActual);
+				ubicacionActual, precio);
 		
 		this.resolucion = resolucion;
         this.relacionImagen = relacionImagen;

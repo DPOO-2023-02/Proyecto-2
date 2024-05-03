@@ -9,13 +9,12 @@ public class Impresion extends Pieza {
     private String relacionImagen;
     private boolean tieneColor;
     
-    public Impresion(String titulo, String anio, String autores, String lugarCreacion, 
-                     boolean disponibilidadVenta, List<String> propietariosAnteriores, 
-                     String propietarioActual, String ubicacionActual, String resolucion, 
-                     String material, String relacionImagen, boolean tieneColor) {
+    public Impresion(String titulo, String anio, String autores, String lugarCreacion, boolean disponibilidadVenta,
+			List<String> propietariosAnteriores, String propietarioActual, String ubicacionActual, double precio, 
+    		String resolucion, String material, String relacionImagen, boolean tieneColor) {
     	
         super(titulo, anio, autores, lugarCreacion, disponibilidadVenta, propietariosAnteriores, 
-              propietarioActual, ubicacionActual);
+              propietarioActual, ubicacionActual, precio);
         
         this.resolucion = resolucion;
         this.material = material;
