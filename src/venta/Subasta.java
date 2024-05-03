@@ -93,4 +93,11 @@ public class Subasta {
 
         return ganador;
     }
+
+
+
+	public void establecerPiezaEnSubasta(Pieza pieza2) {
+		// toca hacer esto manito
+		
+	}
 }

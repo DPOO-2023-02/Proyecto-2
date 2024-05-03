@@ -45,7 +45,7 @@ public class SistemaLogin {
             scanner.close(); 
         }
     }
-//:D
+//:D sjsjsjs
     private static void iniciarSesion(Scanner scanner) {
         System.out.println("Ingrese su nombre de usuario:");
         String usuario = scanner.nextLine();

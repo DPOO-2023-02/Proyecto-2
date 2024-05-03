@@ -36,4 +36,10 @@ public class Operador extends Usuario {
         subastaActual.abrirSubasta();
         this.listaPujas.clear();
 	}
+
+
+	public static void registrarpujas() {
+		// TODO toca hacerlo xd
+		
+	}
 }
