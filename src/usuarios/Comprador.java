@@ -12,7 +12,7 @@ public class Comprador extends Usuario{
 	private ArrayList<Venta> infoCompras;
 	
 	public Comprador(String nombre, String id, String contrasenia, Date cumpleanios) {
-		super(nombre, id, contrasenia);
+		super(nombre, id, contrasenia,0);
 		this.infoCompras = new ArrayList<>();
         this.verificacion = false;
         this.dinero = 0;
