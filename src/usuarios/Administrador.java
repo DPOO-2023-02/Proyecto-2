@@ -96,7 +96,7 @@ public class Administrador extends Usuario {
 		Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta, 
 				new ArrayList<>(), propietarioActual, ubicacionActual, precio, material, tamanio, lienzo);
 
-		Inventario.agregarObjeto(nuevaPintura);
+		Inventario.agregarPieza(nuevaPintura);
 		System.out.println("Pintura agregada exitosamente al inventario.");
 	}
 	public static void crearEscultura(Scanner scanner, String titulo, String anio, String autores, 
@@ -122,7 +122,7 @@ public class Administrador extends Usuario {
 	                          new ArrayList<>(), propietarioActual, ubicacionActual, 
 	                          precio, materiales, detallesInstalacion, requiereElectricidad, peso, dimensiones);
 	    
-	    Inventario.agregarObjeto(nuevaEscultura);
+	    Inventario.agregarPieza(nuevaEscultura);
 	    System.out.println("Escultura agregada exitosamente al inventario.");
 	}
 	
@@ -148,7 +148,7 @@ public class Administrador extends Usuario {
 	                                 precio, resolucion, relacionImagen, audio, tienecolor);
 
 	    
-	    Inventario.agregarObjeto(nuevoVideo);
+	    Inventario.agregarPieza(nuevoVideo);
 	    System.out.println("Video agregado exitosamente al inventario.");
 	}
 
@@ -171,7 +171,7 @@ public class Administrador extends Usuario {
 	    Fotografia nuevaFotografia = new Fotografia(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
 	            new ArrayList<>(), propietarioActual, ubicacionActual, precio, resolucion, relacionImagen, tieneColor, esDigital);
 	    
-	    Inventario.agregarObjeto(nuevaFotografia);
+	    Inventario.agregarPieza(nuevaFotografia);
 	    System.out.println("Fotografía agregada exitosamente al inventario.");
 	}
 
@@ -195,7 +195,7 @@ public class Administrador extends Usuario {
 	                                            new ArrayList<>(), propietarioActual, ubicacionActual, 
 	                                            precio, resolucion, material, relacionImagen, tieneColor);
 	    
-	    Inventario.agregarObjeto(nuevaImpresion);
+	    Inventario.agregarPieza(nuevaImpresion);
 	    System.out.println("Impresión agregada exitosamente al inventario.");
 	}
 
