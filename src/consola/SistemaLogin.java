@@ -24,7 +24,7 @@ public class SistemaLogin {
                 System.out.println("Seleccione una opción:");
 
                 int opcion = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                scanner.nextLine(); 
 
                 switch (opcion) {
                     case 1:
