@@ -125,7 +125,7 @@ public class Administrador extends Usuario {
 	    Inventario.agregarObjeto(nuevaEscultura);
 	    System.out.println("Escultura agregada exitosamente al inventario.");
 	}
-
+	
 	public static void crearVideo(Scanner scanner, String titulo, String anio, String autores, 
 	        String lugarCreacion, boolean disponibilidadVenta, String propietarioActual, String ubicacionActual, double precio) {
 	    System.out.println("Creando un nuevo Video...");

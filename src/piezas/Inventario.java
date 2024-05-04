@@ -57,4 +57,9 @@ public class Inventario {
     public static List<Pieza> getPiezas() {
         return new ArrayList<>(piezas);
     }
+
+	public static void agregarObjeto(Pintura nuevaPintura) {
+		// TODO Auto-generated method stub
+		
+	}
 }
