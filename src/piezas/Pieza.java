@@ -123,5 +123,5 @@ public abstract class Pieza {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-//si
+
 }

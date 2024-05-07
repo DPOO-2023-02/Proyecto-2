@@ -58,10 +58,4 @@ public class Inventario {
 		return new ArrayList<>(piezas);
 	}
 
-	public static void agregarObjeto(Pintura nuevaPintura) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 }
