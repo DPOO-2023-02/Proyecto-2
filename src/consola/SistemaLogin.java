@@ -121,7 +121,7 @@ public class SistemaLogin {
             System.err.println("Error al cargar usuarios: " + e.getMessage());
         }
     }
-
+//Seeeeeeh
     private static void guardarUsuarios() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO_USUARIOS))) {
             for (Map.Entry<String, String[]> entry : usuarios.entrySet()) {
