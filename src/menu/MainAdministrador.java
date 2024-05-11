@@ -3,9 +3,9 @@ package menu;
 import java.util.Scanner;
 import usuarios.Administrador;
 
-public class MenuAdministrador {
+public class MainAdministrador {
 
-    public static void menu() {
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
         try {
             while (true) {

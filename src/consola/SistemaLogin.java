@@ -59,11 +59,11 @@ public class SistemaLogin {
             switch (tipoUsuario.toLowerCase()) {
                 case "administrador":
                     System.out.println("¡Bienvenido, Administrador!");
-                    MenuAdministrador.menu();
+                    MenuAdministrador.main();
                     break;
                 case "cajero":
                     System.out.println("¡Bienvenido, Cajero!");
-                    MenuCajero.menu();
+                    MenuCajero.main();
                     break;
                 default:
                     System.out.println("¡Bienvenido!");

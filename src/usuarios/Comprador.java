@@ -49,7 +49,7 @@ public class Comprador extends Usuario {
         List<Pieza> piezasDisponibles = PersistenciaPiezas.consultarInventario();
         for (Pieza pieza : piezasDisponibles) {
             if (pieza.isDisponibilidadVenta()) {
-                System.out.println("ID: " + pieza.getId() + " - Título: " + pieza.getTitulo() + " - Precio: $" + pieza.getPrecio());
+                System.out.println(" - Título: " + pieza.getTitulo() + " - Precio: $" + pieza.getPrecio());
             }
         }
 
@@ -81,4 +81,9 @@ public class Comprador extends Usuario {
             System.out.println("La pieza seleccionada no está disponible o no existe.");
         }
     }
+
+	public Object consultarHistorialCompras() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

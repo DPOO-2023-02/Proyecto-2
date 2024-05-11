@@ -2,7 +2,7 @@ package menu;
 
 import java.util.Scanner;
 import usuarios.Operador;
-public class MenuOperador {
+public class MainOperador {
 
 	public static void menu() {
 	    Scanner scanner = new Scanner(System.in);

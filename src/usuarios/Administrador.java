@@ -94,7 +94,7 @@ public class Administrador extends Usuario {
         Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                 new ArrayList<>(), propietarioActual, ubicacionActual, precio, material, tamanio, lienzo);
 
-        PersistenciaPiezas.guardarPieza(nuevaPintura);
+        PersistenciaPiezas.agregarPieza(nuevaPintura);
         System.out.println("Pintura agregada exitosamente al inventario.");
     }
 
@@ -121,7 +121,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, materiales, detallesInstalacion, requiereElectricidad, peso, dimensiones);
 
-        PersistenciaPiezas.guardarPieza(nuevaEscultura);
+        PersistenciaPiezas.agregarPieza(nuevaEscultura);
         System.out.println("Escultura agregada exitosamente al inventario.");
     }
 
@@ -146,7 +146,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, resolucion, relacionImagen, audio, tienecolor);
 
-        PersistenciaPiezas.guardarPieza(nuevoVideo);
+        PersistenciaPiezas.agregarPieza(nuevoVideo);
         System.out.println("Video agregado exitosamente al inventario.");
     }
 
@@ -169,7 +169,7 @@ public class Administrador extends Usuario {
         Fotografia nuevaFotografia = new Fotografia(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                 new ArrayList<>(), propietarioActual, ubicacionActual, precio, resolucion, relacionImagen, tieneColor, esDigital);
 
-        PersistenciaPiezas.guardarPieza(nuevaFotografia);
+        PersistenciaPiezas.agregarPieza(nuevaFotografia);
         System.out.println("Fotografía agregada exitosamente al inventario.");
     }
 
@@ -193,7 +193,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, resolucion, material, relacionImagen, tieneColor);
 
-        PersistenciaPiezas.guardarPieza(nuevaImpresion);
+        PersistenciaPiezas.agregarPieza(nuevaImpresion);
         System.out.println("Impresión agregada exitosamente al inventario.");
     }
 

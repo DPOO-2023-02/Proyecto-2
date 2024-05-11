@@ -1,7 +1,7 @@
 package menu;
 import java.util.Scanner;
 import usuarios.Propietario;
-public class MenuPropietario {
+public class MainPropietario {
 
     public static void menu() {
 	    Scanner scanner = new Scanner(System.in);
