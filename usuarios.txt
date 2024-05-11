@@ -1,5 +1,7 @@
 felipe,123,administrador
+1,123,comprador
 peterson,123,administrador
 juan,123,administrador
 juanito,123,administrador
+carlitos,123,comprador
 peperepe,145,administrador

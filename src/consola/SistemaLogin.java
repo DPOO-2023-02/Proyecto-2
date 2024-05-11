@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.Scanner;
 import menu.MenuAdministrador;
 import menu.MenuCajero;
+import menu.MenuComprador;
+import menu.MenuOperador;
+import menu.MenuPropietario;
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -65,8 +68,21 @@ public class SistemaLogin {
                     System.out.println("¡Bienvenido, Cajero!");
                     MenuCajero.menu();
                     break;
+                case "comprador":
+                	System.out.println("¡Bienvenido, Comprador");
+                	MenuComprador.menu();
+                	break;
+                case "operador":
+                	System.out.println("¡Bienvenido, operador");
+                	MenuOperador.menu();
+                	break;
+                case "Propietario":
+                	System.out.println("¡Bienvenido, Propietario");
+                	MenuPropietario.menu();
+                	break;
                 default:
                     System.out.println("¡Bienvenido!");
+                
             }
         } else {
             System.out.println("Nombre de usuario o contraseña incorrectos.");
