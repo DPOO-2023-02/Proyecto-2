@@ -3,8 +3,9 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import menu.MenuAdministrador;
-import menu.MenuCajero;
+
+import menu.MainAdministrador;
+import menu.MainCajero;
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -59,11 +60,11 @@ public class SistemaLogin {
             switch (tipoUsuario.toLowerCase()) {
                 case "administrador":
                     System.out.println("¡Bienvenido, Administrador!");
-                    MenuAdministrador.main();
+                    MainAdministrador.main();
                     break;
                 case "cajero":
                     System.out.println("¡Bienvenido, Cajero!");
-                    MenuCajero.main();
+                    MainCajero.main();
                     break;
                 default:
                     System.out.println("¡Bienvenido!");
