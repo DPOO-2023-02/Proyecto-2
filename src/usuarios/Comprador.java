@@ -46,7 +46,7 @@ public class Comprador extends Usuario {
     
     public void iniciarVenta(Scanner scanner) {
         System.out.println("Listando piezas disponibles:");
-        List<Pieza> piezasDisponibles = PersistenciaPiezas.consultarInventario(); // Asume que esta función devuelve todas las piezas
+        List<Pieza> piezasDisponibles = PersistenciaPiezas.consultarInventario();
         for (Pieza pieza : piezasDisponibles) {
             if (pieza.isDisponibilidadVenta()) {
                 System.out.println("ID: " + pieza.getId() + " - Título: " + pieza.getTitulo() + " - Precio: $" + pieza.getPrecio());
@@ -64,11 +64,9 @@ public class Comprador extends Usuario {
             if (piezaSeleccionada.isSubastable()) {
                 Subasta subasta = new Subasta(piezaSeleccionada.getPrecio(), piezaSeleccionada.getPrecio() + 100, piezaSeleccionada);
                 subasta.registrarParticipante(this);
-                // Aquí se debe manejar la lógica para permitir ofertas y finalizar la subasta
                 System.out.println("Participación en subasta iniciada para la pieza: " + piezaSeleccionada.getTitulo());
             } else {
                 try {
-                    // Verificación de pago y finalización de venta
                     boolean pagoConfirmado = Cajero.ConfirmarPago(this, piezaSeleccionada.getPrecio(), false);
                     if (pagoConfirmado) {
                         System.out.println("Compra realizada exitosamente para la pieza: " + piezaSeleccionada.getTitulo());

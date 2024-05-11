@@ -24,7 +24,25 @@ public class PersistenciaPiezas {
             e.printStackTrace();
         }
     }
-
+    
+    public static void eliminarPieza(String titulo) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO))) {
+            StringBuilder contenidoNuevo = new StringBuilder();
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if (!datos[0].equals(titulo)) {
+                    contenidoNuevo.append(linea).append("\n");
+                }
+            }
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO))) {
+                writer.write(contenidoNuevo.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void guardarPiezas(List<Pieza> piezas) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO))) {
             for (Pieza pieza : piezas) {
@@ -69,22 +87,5 @@ public class PersistenciaPiezas {
             e.printStackTrace();
         }
 		return null;
-    }
-    public static void eliminarPieza(String titulo) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO))) {
-            StringBuilder contenidoNuevo = new StringBuilder();
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                String[] datos = linea.split(",");
-                if (!datos[0].equals(titulo)) {
-                    contenidoNuevo.append(linea).append("\n");
-                }
-            }
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO))) {
-                writer.write(contenidoNuevo.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
