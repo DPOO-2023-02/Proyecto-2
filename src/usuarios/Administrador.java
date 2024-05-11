@@ -222,6 +222,7 @@ public class Administrador extends Usuario {
 
         PersistenciaPiezas.eliminarPieza(titulo);
         System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
+        scanner.close();
     }
     }
     
