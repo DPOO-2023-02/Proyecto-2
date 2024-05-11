@@ -218,11 +218,11 @@ public class Administrador extends Usuario {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese el título de la pieza que desea eliminar:");
-        String titulo = scanner.nextLine();
+        String titulo = Scanner.nextLine();
 
         PersistenciaPiezas.eliminarPieza(titulo);
         System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
     }
-    }
+}
     
 

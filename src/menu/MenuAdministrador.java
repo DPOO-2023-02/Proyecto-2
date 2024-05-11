@@ -13,9 +13,7 @@ public class MenuAdministrador {
                 System.out.println("1. Agregar Pieza a inventario");
                 System.out.println("2. Eliminar Pieza de inventario");
                 System.out.println("3. Consultar Inventario");
-                System.out.println("4. Aprobar Pago");
-                System.out.println("5. Modificar Inventario");
-                System.out.println("6. Volver al menú principal");
+                System.out.println("4. Volver al menú principal");
                 System.out.println("Seleccione una opción:");
                 
                 int opcion = scanner.nextInt();
@@ -30,7 +28,7 @@ public class MenuAdministrador {
                     case 3:
                         Administrador.consultarInventario();
                         break;
-                    case 6:
+                    case 4:
                         System.out.println("Volviendo al menú principal...");
                         return;
                     default:
