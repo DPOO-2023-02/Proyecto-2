@@ -56,7 +56,7 @@ public class PersistenciaPiezas {
                 String ubicacionActual = datos[6];
                 double precio = Double.parseDouble(datos[7]);
 
-                System.out.println("Título: " + titulo +
+                System.out.println(" Título: " + titulo +
                         ",\n Año de creación: " + anio +
                         ",\n Autores: " + autores +
                         ",\n Lugar de creación: " + lugarCreacion +
