@@ -3,9 +3,17 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+<<<<<<< HEAD
+import menu.MenuAdministrador;
+import menu.MenuCajero;
+import menu.MenuComprador;
+import menu.MenuOperador;
+import menu.MenuPropietario;
+=======
 
 import menu.MainAdministrador;
 import menu.MainCajero;
+>>>>>>> abd00d4911fbc7e433e17188ac92ba9e40b7c2a2
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -66,8 +74,21 @@ public class SistemaLogin {
                     System.out.println("¡Bienvenido, Cajero!");
                     MainCajero.main();
                     break;
+                case "comprador":
+                	System.out.println("¡Bienvenido, Comprador");
+                	MainComprador.menu();
+                	break;
+                case "operador":
+                	System.out.println("¡Bienvenido, operador");
+                	MainOperador.menu();
+                	break;
+                case "Propietario":
+                	System.out.println("¡Bienvenido, Propietario");
+                	MenuPropietario.menu();
+                	break;
                 default:
                     System.out.println("¡Bienvenido!");
+                
             }
         } else {
             System.out.println("Nombre de usuario o contraseña incorrectos.");

@@ -35,16 +35,19 @@ public class Comprador extends Usuario {
         System.out.println("Compra realizada con éxito. Restante en cartera: $" + dinero);
     }
 
-    public void consultarCartera() {
+    public static void consultarCartera(Scanner scanner) {
         System.out.println("Saldo disponible: $" + dinero);
     }
 
-    public void agregarFondos(int cantidad) {
+    public static void agregarFondos() {
+    	Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese la cantidad de dinero que desea agregar a la cuenta:");
+        int cantidad = scanner.nextInt();
         dinero += cantidad;
         System.out.println("Fondos añadidos. Nuevo saldo: $" + dinero);
     }
     
-    public void iniciarVenta(Scanner scanner) {
+    public static void iniciarVenta(Scanner scanner) {
         System.out.println("Listando piezas disponibles:");
         List<Pieza> piezasDisponibles = PersistenciaPiezas.consultarInventario();
         for (Pieza pieza : piezasDisponibles) {
@@ -86,4 +89,12 @@ public class Comprador extends Usuario {
 		// TODO Auto-generated method stub
 		return null;
 	}
+<<<<<<< HEAD
+
+	public static void menuCompra(Scanner scanner) {
+		// TODO Auto-generated method stub
+		
+	}
+=======
+>>>>>>> abd00d4911fbc7e433e17188ac92ba9e40b7c2a2
 }
