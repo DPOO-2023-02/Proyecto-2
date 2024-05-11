@@ -1,19 +1,14 @@
 package consola;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-<<<<<<< HEAD
-import menu.MenuAdministrador;
-import menu.MenuCajero;
-import menu.MenuComprador;
-import menu.MenuOperador;
-import menu.MenuPropietario;
-=======
-
 import menu.MainAdministrador;
 import menu.MainCajero;
->>>>>>> abd00d4911fbc7e433e17188ac92ba9e40b7c2a2
+import menu.MainComprador;
+import menu.MainOperador;
+import menu.MainPropietario;
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -84,7 +79,7 @@ public class SistemaLogin {
                 	break;
                 case "Propietario":
                 	System.out.println("¡Bienvenido, Propietario");
-                	MenuPropietario.menu();
+                	MainPropietario.menu();
                 	break;
                 default:
                     System.out.println("¡Bienvenido!");
