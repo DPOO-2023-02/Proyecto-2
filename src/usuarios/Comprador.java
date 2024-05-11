@@ -1,68 +1,86 @@
 package usuarios;
+
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+import persistencia.PersistenciaPiezas;
+import piezas.Pieza;
 import venta.Venta;
 import venta.Subasta;
 
+public class Comprador extends Usuario {
+    
+    private ArrayList<Venta> infoCompras;
 
-public class Comprador extends Usuario{
-	//Atributos
-	private Boolean verificacion;
-	private int dinero;
-	private ArrayList<Venta> infoCompras;
-	
-	public Comprador(String nombre, String id, String contrasenia, Date cumpleanios) {
-		super(nombre, id, contrasenia,0);
-		this.infoCompras = new ArrayList<>();
-        this.verificacion = false;
-        this.dinero = 0;
-	}
-	public Boolean getVerificacion() {
-		return verificacion;
-	}
-	public void setVerificacion(Boolean verificacion) {
-		this.verificacion = verificacion;
-	}
-	public int getDinero() {
-		return dinero;
-	}
-	public void setDinero(int dinero) {
-		this.dinero = dinero;
-	}
-	public ArrayList<Venta> getInfocompras() {
-		return infoCompras;
-	}
-	public void setInfocompras(ArrayList<Venta> infocompras) {
-		this.infoCompras = infocompras;
-	}
-	
-	//Metodos
-	public void realizarCompra(Venta venta) throws Exception {
-        if (!verificacion) {
-            throw new Exception("El comprador no está verificado.");
-        }
+    public Comprador(String nombre, String id, String contrasenia, int dinero) {
+        super(nombre, id, contrasenia, dinero);
+        this.infoCompras = new ArrayList<>();
+    }
+
+    public ArrayList<Venta> getInfoCompras() {
+        return infoCompras;
+    }
+
+    public void setInfoCompras(ArrayList<Venta> infoCompras) {
+        this.infoCompras = infoCompras;
+    }
+
+    public void comprarPieza(Venta venta) throws Exception {
         if (venta.getPrecio() > dinero) {
             throw new Exception("Fondos insuficientes.");
         }
         dinero -= venta.getPrecio();
         infoCompras.add(venta);
-        
-        
-	}
-	public void participarSubasta(Subasta subasta, double oferta) throws Exception {
-        if (!verificacion) {
-            throw new Exception("El comprador no está verificado.");
-        }
-        if (oferta > dinero) {
-            throw new Exception("Fondos insuficientes para realizar la oferta.");
-        }
-	}
-	
-	public void agregarFondos(int cantidad) {
-        dinero += cantidad;
+        System.out.println("Compra realizada con éxito. Restante en cartera: $" + dinero);
     }
-	
-	public ArrayList<Venta> consultarHistorialCompras() {
-        return new ArrayList<>(infoCompras);
+
+    public void consultarCartera() {
+        System.out.println("Saldo disponible: $" + dinero);
+    }
+
+    public void agregarFondos(int cantidad) {
+        dinero += cantidad;
+        System.out.println("Fondos añadidos. Nuevo saldo: $" + dinero);
+    }
+    
+    public void iniciarVenta(Scanner scanner) {
+        System.out.println("Listando piezas disponibles:");
+        List<Pieza> piezasDisponibles = PersistenciaPiezas.consultarInventario(); // Asume que esta función devuelve todas las piezas
+        for (Pieza pieza : piezasDisponibles) {
+            if (pieza.isDisponibilidadVenta()) {
+                System.out.println("ID: " + pieza.getId() + " - Título: " + pieza.getTitulo() + " - Precio: $" + pieza.getPrecio());
+            }
+        }
+
+        System.out.println("Ingrese el ID de la pieza que desea comprar:");
+        String idPieza = scanner.nextLine();
+        Pieza piezaSeleccionada = piezasDisponibles.stream()
+                .filter(p -> p.getId().equals(idPieza) && p.isDisponibilidadVenta())
+                .findFirst()
+                .orElse(null);
+
+        if (piezaSeleccionada != null) {
+            if (piezaSeleccionada.isSubastable()) {
+                Subasta subasta = new Subasta(piezaSeleccionada.getPrecio(), piezaSeleccionada.getPrecio() + 100, piezaSeleccionada);
+                subasta.registrarParticipante(this);
+                // Aquí se debe manejar la lógica para permitir ofertas y finalizar la subasta
+                System.out.println("Participación en subasta iniciada para la pieza: " + piezaSeleccionada.getTitulo());
+            } else {
+                try {
+                    // Verificación de pago y finalización de venta
+                    boolean pagoConfirmado = Cajero.ConfirmarPago(this, piezaSeleccionada.getPrecio(), false);
+                    if (pagoConfirmado) {
+                        System.out.println("Compra realizada exitosamente para la pieza: " + piezaSeleccionada.getTitulo());
+                    } else {
+                        System.out.println("No se pudo completar la compra debido a fondos insuficientes.");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error en la compra: " + e.getMessage());
+                }
+            }
+        } else {
+            System.out.println("La pieza seleccionada no está disponible o no existe.");
+        }
     }
 }

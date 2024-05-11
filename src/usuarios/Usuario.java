@@ -4,9 +4,9 @@ public abstract class Usuario {
 	private String nombre;
 	private String id;
 	private String contrasenia;
-	private int dinero;
+	protected int dinero;
 
-	public Usuario(String nombre, String id, String contrasenia,int dinero) {
+	public Usuario(String nombre, String id, String contrasenia, int dinero) {
 		this.nombre=nombre;
 		this.id=id;
 		this.contrasenia=contrasenia;

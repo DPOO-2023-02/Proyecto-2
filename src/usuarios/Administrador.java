@@ -224,6 +224,6 @@ public class Administrador extends Usuario {
         System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
         scanner.close();
     }
-    }
+}
     
 
