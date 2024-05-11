@@ -26,16 +26,9 @@ public class MenuAdministrador {
                         Administrador.agregarPieza(scanner);
                         break;
                     case 2:
-                        Administrador.eliminarPieza(scanner);
-                        break;
+                    	Administrador.eliminarPieza();
                     case 3:
                         Administrador.consultarInventario();
-                        break;
-                    case 4:
-                        Administrador.aprobarPago(scanner);
-                        break;
-                    case 5:
-                        Administrador.modificarInventario(scanner);
                         break;
                     case 6:
                         System.out.println("Volviendo al menú principal...");
