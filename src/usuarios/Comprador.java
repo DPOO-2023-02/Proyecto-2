@@ -52,7 +52,7 @@ public class Comprador extends Usuario {
         List<Pieza> piezasDisponibles = PersistenciaPiezas.consultarInventario();
         for (Pieza pieza : piezasDisponibles) {
             if (pieza.isDisponibilidadVenta()) {
-                System.out.println("ID: " + pieza.getId() + " - Título: " + pieza.getTitulo() + " - Precio: $" + pieza.getPrecio());
+                System.out.println(" - Título: " + pieza.getTitulo() + " - Precio: $" + pieza.getPrecio());
             }
         }
 
@@ -89,9 +89,12 @@ public class Comprador extends Usuario {
 		// TODO Auto-generated method stub
 		return null;
 	}
+<<<<<<< HEAD
 
 	public static void menuCompra(Scanner scanner) {
 		// TODO Auto-generated method stub
 		
 	}
+=======
+>>>>>>> abd00d4911fbc7e433e17188ac92ba9e40b7c2a2
 }

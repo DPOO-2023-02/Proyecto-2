@@ -10,7 +10,7 @@ import piezas.Pieza;
 public class PersistenciaPiezas {
     private static final String ARCHIVO = "piezas.txt";
 
-    public static void guardarPieza(Pieza pieza) {
+    public static void agregarPieza(Pieza pieza) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO, true))) {
             writer.write(pieza.getTitulo() + "," +
                     pieza.getAnio() + "," +

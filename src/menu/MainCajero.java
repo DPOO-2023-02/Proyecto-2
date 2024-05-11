@@ -1,9 +1,9 @@
 package menu;
 import usuarios.Cajero;
 import java.util.Scanner;
-public class MenuCajero {
+public class MainCajero {
 
-	public static void menu() {
+	public static void main() {
 
 	    Scanner scanner = new Scanner(System.in);
 

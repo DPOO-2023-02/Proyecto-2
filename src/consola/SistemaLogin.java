@@ -3,11 +3,17 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+<<<<<<< HEAD
 import menu.MenuAdministrador;
 import menu.MenuCajero;
 import menu.MenuComprador;
 import menu.MenuOperador;
 import menu.MenuPropietario;
+=======
+
+import menu.MainAdministrador;
+import menu.MainCajero;
+>>>>>>> abd00d4911fbc7e433e17188ac92ba9e40b7c2a2
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -62,19 +68,19 @@ public class SistemaLogin {
             switch (tipoUsuario.toLowerCase()) {
                 case "administrador":
                     System.out.println("¡Bienvenido, Administrador!");
-                    MenuAdministrador.menu();
+                    MainAdministrador.main();
                     break;
                 case "cajero":
                     System.out.println("¡Bienvenido, Cajero!");
-                    MenuCajero.menu();
+                    MainCajero.main();
                     break;
                 case "comprador":
                 	System.out.println("¡Bienvenido, Comprador");
-                	MenuComprador.menu();
+                	MainComprador.menu();
                 	break;
                 case "operador":
                 	System.out.println("¡Bienvenido, operador");
-                	MenuOperador.menu();
+                	MainOperador.menu();
                 	break;
                 case "Propietario":
                 	System.out.println("¡Bienvenido, Propietario");
