@@ -105,7 +105,7 @@ public class SistemaLogin {
 
         System.out.println("Usuario registrado con éxito.");
     }
-//Persistencia Usuario y contraseña
+
     private static void cargarUsuarios() {
         try (Scanner fileScanner = new Scanner(new File(ARCHIVO_USUARIOS))) {
             while (fileScanner.hasNextLine()) {

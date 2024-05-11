@@ -1,8 +1,8 @@
 package usuarios;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import persistencia.PersistenciaPiezas;
 import piezas.Escultura;
 import piezas.Fotografia;
 import piezas.Impresion;
@@ -94,7 +94,7 @@ public class Administrador extends Usuario {
         Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                 new ArrayList<>(), propietarioActual, ubicacionActual, precio, material, tamanio, lienzo);
 
-        PersistenciaPiezas.agregarPieza(nuevaPintura);
+        Inventario.agregarPieza(nuevaPintura);
         System.out.println("Pintura agregada exitosamente al inventario.");
     }
 
@@ -121,7 +121,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, materiales, detallesInstalacion, requiereElectricidad, peso, dimensiones);
 
-        PersistenciaPiezas.agregarPieza(nuevaEscultura);
+        Inventario.agregarPieza(nuevaEscultura);
         System.out.println("Escultura agregada exitosamente al inventario.");
     }
 
@@ -146,7 +146,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, resolucion, relacionImagen, audio, tienecolor);
 
-        PersistenciaPiezas.agregarPieza(nuevoVideo);
+        Inventario.agregarPieza(nuevoVideo);
         System.out.println("Video agregado exitosamente al inventario.");
     }
 
@@ -169,7 +169,7 @@ public class Administrador extends Usuario {
         Fotografia nuevaFotografia = new Fotografia(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                 new ArrayList<>(), propietarioActual, ubicacionActual, precio, resolucion, relacionImagen, tieneColor, esDigital);
 
-        PersistenciaPiezas.agregarPieza(nuevaFotografia);
+        Inventario.agregarPieza(nuevaFotografia);
         System.out.println("Fotografía agregada exitosamente al inventario.");
     }
 
@@ -193,7 +193,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, resolucion, material, relacionImagen, tieneColor);
 
-        PersistenciaPiezas.agregarPieza(nuevaImpresion);
+        Inventario.agregarPieza(nuevaImpresion);
         System.out.println("Impresión agregada exitosamente al inventario.");
     }
 
@@ -210,7 +210,7 @@ public class Administrador extends Usuario {
     }
 
     public static List<Pieza> consultarInventario() {
-        List<Pieza> piezas = PersistenciaPiezas.consultarInventario();
+        List<Pieza> piezas = Inventario.consultarInventario();
         return piezas;
     }
 
@@ -220,7 +220,7 @@ public class Administrador extends Usuario {
         System.out.println("Ingrese el título de la pieza que desea eliminar:");
         String titulo = scanner.nextLine();
 
-        PersistenciaPiezas.eliminarPieza(titulo);
+        Inventario.eliminarPieza(titulo);
         System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
         scanner.close();
     }
