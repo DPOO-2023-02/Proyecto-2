@@ -216,7 +216,8 @@ public class Administrador extends Usuario {
         } else {
             System.out.println("Inventario de piezas:");
             for (Pieza pieza : piezas) {
-                System.out.println("Título: " + pieza.getTitulo() +
+                System.out.println("===================" +
+                		"Título: " + pieza.getTitulo() +
                         "\nAño: " + pieza.getAnio() +
                         "\nAutores: " + pieza.getAutores() +
                         "\nLugar de creación: " + pieza.getLugarCreacion() +
