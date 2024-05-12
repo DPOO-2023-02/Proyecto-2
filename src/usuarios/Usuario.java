@@ -3,9 +3,9 @@ package usuarios;
 public abstract class Usuario {
 	private String nombre;
 	private String contrasenia;
-	static int dinero;
+	static double dinero;
 
-	public Usuario(String nombre, String contrasenia, int dinero) {
+	public Usuario(String nombre, String contrasenia, double dinero) {
 		this.nombre=nombre;
 		this.contrasenia=contrasenia;
 		Usuario.dinero=dinero;
@@ -27,15 +27,12 @@ public abstract class Usuario {
 		this.contrasenia = contrasenia;
 	}
 
-	public int getDinero() {
+	public double getDinero() {
 		return dinero;
 	}
 
-	public void setDinero(int dinero) {
+	public void setDinero(double dinero) {
 		Usuario.dinero = dinero;
 	}
-	public void restarDinero(double cantidad) {
-        dinero -= cantidad;
-    }
 
 }
