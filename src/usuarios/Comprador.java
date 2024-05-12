@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import persistencia.PersistenciaPiezas;
+import piezas.Inventario;
 import piezas.Pieza;
 import venta.Venta;
 import venta.Subasta;
 
 public class Comprador extends Usuario {
+<<<<<<< HEAD
     
     private ArrayList<Venta> infoCompras;
     
@@ -95,9 +96,83 @@ public class Comprador extends Usuario {
 		return null;
 	}
 
+=======
 
-	public static void menuCompra(Scanner scanner) {
-		// TODO Auto-generated method stub
-		
+	private ArrayList<Venta> infoCompras;
+
+	public Comprador(String nombre, String id, String contrasenia, int dinero) {
+		super(nombre, id, contrasenia, dinero);
+		this.infoCompras = new ArrayList<>();
 	}
+>>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de
+
+	public ArrayList<Venta> getInfoCompras() {
+		return infoCompras;
+	}
+
+	public void setInfoCompras(ArrayList<Venta> infoCompras) {
+		this.infoCompras = infoCompras;
+	}
+
+	public void comprarPieza(Venta venta) throws Exception {
+		if (venta.getPrecio() > dinero) {
+			throw new Exception("Fondos insuficientes.");
+		}
+		dinero -= venta.getPrecio();
+		infoCompras.add(venta);
+		System.out.println("Compra realizada con éxito. Restante en cartera: $" + dinero);
+	}
+
+	public static void consultarCartera(Scanner scanner) {
+		System.out.println("Saldo disponible: $" + dinero);
+	}
+
+	public static void agregarFondos() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ingrese la cantidad de dinero que desea agregar a la cuenta:");
+		int cantidad = scanner.nextInt();
+		dinero += cantidad;
+		System.out.println("Fondos añadidos. Nuevo saldo: $" + dinero);
+	}
+
+	public static void iniciarVenta(Scanner scanner) {
+		System.out.println("Listando piezas disponibles para venta directa:");
+		List<Pieza> piezasDisponibles = Inventario.consultarInventario();
+
+		// Filtrar y mostrar piezas disponibles para venta directa
+		piezasDisponibles.stream()
+		.filter(Pieza::isDisponibilidadVenta)
+		.forEach(pieza -> System.out.println("Título: " + pieza.getTitulo() +
+				" - Precio: $" + pieza.getPrecio()));
+
+		System.out.println("Ingrese el título de la pieza que desea comprar:");
+		String tituloPieza = scanner.nextLine();
+
+		Pieza piezaSeleccionada = piezasDisponibles.stream()
+				.filter(p -> p.getTitulo().equalsIgnoreCase(tituloPieza) && p.isDisponibilidadVenta())
+				.findFirst()
+				.orElse(null);
+
+		if (piezaSeleccionada != null) {
+			// Aquí debes integrar la lógica para realizar la compra, como llamar a un método que maneje la transacción.
+			realizarCompra(piezaSeleccionada);
+		} else {
+			System.out.println("No se encontró la pieza o no está disponible para la venta.");
+		}
+	}
+
+	// Método para simular la compra de una pieza.
+	private void realizarCompra(Pieza pieza) {
+		// Aquí puedes agregar la lógica de verificación del comprador y confirmación de la compra.
+		System.out.println("Compra realizada exitosamente para la pieza: " + pieza.getTitulo());
+	}
+<<<<<<< HEAD
+=======
+}
+
+public Object consultarHistorialCompras() {
+	// TODO Auto-generated method stub
+	return null;
+}
+>>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de
 }

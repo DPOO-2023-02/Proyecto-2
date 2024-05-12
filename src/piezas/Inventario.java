@@ -1,61 +1,82 @@
 package piezas;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Inventario {
-	private static List<Pieza> piezas = new ArrayList<>();
+    private static List<Pieza> piezas = new ArrayList<>();
+    private static final String ARCHIVO = "piezas.txt";
 
-	public static void agregarPieza(Pieza pieza) {
-		piezas.add(pieza);
-	}
+    public static void agregarPieza(Pieza pieza) {
+        piezas.add(pieza);
+        guardarPiezas(piezas); // Guarda cada vez que se agrega una nueva pieza
+    }
 
-	public static void eliminarPieza(Pieza pieza) {
-		piezas.remove(pieza);
-	}
+    public static void eliminarPieza(String titulo) {
+        piezas.removeIf(p -> p.getTitulo().equals(titulo));
+        guardarPiezas(piezas); // Guarda después de eliminar
+    }
 
-	public static Pieza buscarPiezaPorTitulo(String titulo) {
-		return piezas.stream()
-				.filter(p -> p.getTitulo().equals(titulo))
-				.findFirst()
-				.orElse(null);
-	}
+    public static void guardarPiezas(List<Pieza> piezas) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO))) {
+            for (Pieza pieza : piezas) {
+                writer.write(pieza.getTitulo() + "," +
+                        pieza.getAnio() + "," +
+                        pieza.getAutores() + "," +
+                        pieza.getLugarCreacion() + "," +
+                        pieza.isDisponibilidadVenta() + "," +
+                        pieza.getPropietarioActual() + "," +
+                        pieza.getUbicacionActual() + "," +
+                        pieza.getPrecio() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public static List<Pieza> buscarPiezasPorAutor(String autor) {
-		return piezas.stream()
-				.filter(p -> p.getAutores().contains(autor))
-				.collect(Collectors.toList());
-	}
+    public static List<Pieza> consultarInventario() {
+        List<Pieza> nuevasPiezas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                nuevasPiezas.add(crearPiezaDesdeDatos(linea.split(",")));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return nuevasPiezas;
+    }
 
-	public static void actualizarEstadoVenta(String titulo, boolean disponibilidadVenta) {
-		Pieza pieza = buscarPiezaPorTitulo(titulo);
-		if (pieza != null) {
-			pieza.setDisponibilidadVenta(disponibilidadVenta);
-		}
-	}
+    private static Pieza crearPiezaDesdeDatos(String[] datos) {
+        String titulo = datos[0];
+        String anio = datos[1];
+        String autores = datos[2];
+        String lugarCreacion = datos[3];
+        boolean disponibilidadVenta = Boolean.parseBoolean(datos[4]);
+        String propietarioActual = datos[5];
+        String ubicacionActual = datos[6];
+        double precio = Double.parseDouble(datos[7]);
 
-	public static void actualizarPrecioPieza(String titulo, double nuevoPrecio) {
-		Pieza pieza = buscarPiezaPorTitulo(titulo);
-		if (pieza != null) {
-			pieza.setPrecio(nuevoPrecio);
-		}
-	}
+        return new Pieza(titulo, anio, autores, lugarCreacion, disponibilidadVenta, new ArrayList<>(), propietarioActual, ubicacionActual, precio) {
+            // Implementación de métodos abstractos si es necesario
+        };
+    }
 
-	public static List<Pieza> listarPiezasDisponiblesParaVenta() {
-		return piezas.stream()
-				.filter(Pieza::isDisponibilidadVenta)
-				.collect(Collectors.toList());
-	}
+    public static List<Pieza> listarPiezasDisponiblesParaVenta() {
+        return piezas.stream()
+                .filter(Pieza::isDisponibilidadVenta)
+                .collect(Collectors.toList());
+    }
 
-	public static List<Pieza> listarPiezasSubastables() {
-		return piezas.stream()
-				.filter(Pieza::isSubastable)
-				.collect(Collectors.toList());
-	}
-
-	public static List<Pieza> getPiezas() {
-		return new ArrayList<>(piezas);
-	}
-
+    public static List<Pieza> listarPiezasSubastables() {
+        return piezas.stream()
+                .filter(Pieza::isSubastable)
+                .collect(Collectors.toList());
+    }
 }

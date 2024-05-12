@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 juanito,123,administrador,10000.0
 andres,123,comprador,10000.0
+=======
+andres,123,administrador
+Pepito,15947,administrador
+>>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de

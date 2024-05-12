@@ -1,8 +1,8 @@
 package usuarios;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import persistencia.PersistenciaPiezas;
 import piezas.Escultura;
 import piezas.Fotografia;
 import piezas.Impresion;
@@ -94,7 +94,7 @@ public class Administrador extends Usuario {
         Pintura nuevaPintura = new Pintura(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                 new ArrayList<>(), propietarioActual, ubicacionActual, precio, material, tamanio, lienzo);
 
-        PersistenciaPiezas.agregarPieza(nuevaPintura);
+        Inventario.agregarPieza(nuevaPintura);
         System.out.println("Pintura agregada exitosamente al inventario.");
     }
 
@@ -121,7 +121,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, materiales, detallesInstalacion, requiereElectricidad, peso, dimensiones);
 
-        PersistenciaPiezas.agregarPieza(nuevaEscultura);
+        Inventario.agregarPieza(nuevaEscultura);
         System.out.println("Escultura agregada exitosamente al inventario.");
     }
 
@@ -146,7 +146,7 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, resolucion, relacionImagen, audio, tienecolor);
 
-        PersistenciaPiezas.agregarPieza(nuevoVideo);
+        Inventario.agregarPieza(nuevoVideo);
         System.out.println("Video agregado exitosamente al inventario.");
     }
 
@@ -169,7 +169,7 @@ public class Administrador extends Usuario {
         Fotografia nuevaFotografia = new Fotografia(titulo, anio, autores, lugarCreacion, disponibilidadVenta,
                 new ArrayList<>(), propietarioActual, ubicacionActual, precio, resolucion, relacionImagen, tieneColor, esDigital);
 
-        PersistenciaPiezas.agregarPieza(nuevaFotografia);
+        Inventario.agregarPieza(nuevaFotografia);
         System.out.println("Fotografía agregada exitosamente al inventario.");
     }
 
@@ -193,12 +193,12 @@ public class Administrador extends Usuario {
                 new ArrayList<>(), propietarioActual, ubicacionActual,
                 precio, resolucion, material, relacionImagen, tieneColor);
 
-        PersistenciaPiezas.agregarPieza(nuevaImpresion);
+        Inventario.agregarPieza(nuevaImpresion);
         System.out.println("Impresión agregada exitosamente al inventario.");
     }
 
     public static void buscarPiezaPorTitulo(String titulo) {
-        List<Pieza> piezas = Inventario.getPiezas();
+        List<Pieza> piezas = Inventario.consultarInventario(); 
         for (Pieza pieza : piezas) {
             if (pieza.getTitulo().equals(titulo)) {
                 System.out.println("Pieza encontrada:");
@@ -209,21 +209,38 @@ public class Administrador extends Usuario {
         System.out.println("No se encontró ninguna pieza con título '" + titulo + "'.");
     }
 
-    public static List<Pieza> consultarInventario() {
-        List<Pieza> piezas = PersistenciaPiezas.consultarInventario();
-        return piezas;
+    public static void consultarInventario() {
+        List<Pieza> piezas = Inventario.consultarInventario();
+        if (piezas.isEmpty()) {
+            System.out.println("El inventario está vacío.");
+        } else {
+            System.out.println("Inventario de piezas:");
+            for (Pieza pieza : piezas) {
+                System.out.println("Título: " + pieza.getTitulo() +
+                        "\nAño: " + pieza.getAnio() +
+                        "\nAutores: " + pieza.getAutores() +
+                        "\nLugar de creación: " + pieza.getLugarCreacion() +
+                        "\nDisponibilidad de venta: " + (pieza.isDisponibilidadVenta() ? "Disponible" : "No disponible") +
+                        "\nPropietario actual: " + pieza.getPropietarioActual() +
+                        "\nUbicación actual: " + pieza.getUbicacionActual() +
+                        "\nPrecio: $" + pieza.getPrecio() +
+                        "\nSubastable: " + (pieza.isSubastable() ? "Sí" : "No"));
+            }
+        }
     }
 
     public static void eliminarPieza() {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Ingrese el título de la pieza que desea eliminar:");
-        String titulo = scanner.nextLine();
-
-        PersistenciaPiezas.eliminarPieza(titulo);
-        System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
-        scanner.close();
+        try {
+            System.out.println("Ingrese el título de la pieza que desea eliminar:");
+            String titulo = scanner.nextLine();
+            Inventario.eliminarPieza(titulo);
+            System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
+        } finally {
+            scanner.close(); 
+        }
     }
+
 }
     
 
