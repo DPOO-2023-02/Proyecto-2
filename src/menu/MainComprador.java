@@ -5,7 +5,7 @@ import usuarios.Comprador;
 
 public class MainComprador {
 
-	public static void menu() {
+	public static void main() {
 		
 		Scanner scanner = new Scanner(System.in);
 		int opcion;

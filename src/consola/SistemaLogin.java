@@ -114,7 +114,7 @@ public class SistemaLogin {
                 String linea = fileScanner.nextLine();
                 String[] partes = linea.split(",");
                 if (partes.length >= 3) { 
-                    usuarios.put(partes[0], new String[]{partes[1], partes[2]});
+                    usuarios.put(partes[0], new String[]{partes[1], partes[2], partes[3]});
                 } else {
                     System.err.println("Formato de usuario incorrecto en línea: " + linea);
                 }
