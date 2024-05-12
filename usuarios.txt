@@ -1,7 +1,2 @@
-felipe,123,administrador
-123,123,administrador
-peterson,123,administrador
-juan,123,administrador
-juanito,123,administrador
-carlitos,123,comprador
-peperepe,145,administrador
+andres,123,administrador
+Pepito,15947,administrador

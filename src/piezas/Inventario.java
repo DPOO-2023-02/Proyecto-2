@@ -14,36 +14,13 @@ public class Inventario {
     private static final String ARCHIVO = "piezas.txt";
 
     public static void agregarPieza(Pieza pieza) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO, true))) {
-            writer.write(pieza.getTitulo() + "," +
-                    pieza.getAnio() + "," +
-                    pieza.getAutores() + "," +
-                    pieza.getLugarCreacion() + "," +
-                    pieza.isDisponibilidadVenta() + "," +
-                    pieza.getPropietarioActual() + "," +
-                    pieza.getUbicacionActual() + "," +
-                    pieza.getPrecio() + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        piezas.add(pieza);
+        guardarPiezas(piezas); // Guarda cada vez que se agrega una nueva pieza
     }
 
     public static void eliminarPieza(String titulo) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO))) {
-            StringBuilder contenidoNuevo = new StringBuilder();
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                String[] datos = linea.split(",");
-                if (!datos[0].equals(titulo)) {
-                    contenidoNuevo.append(linea).append("\n");
-                }
-            }
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO))) {
-                writer.write(contenidoNuevo.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        piezas.removeIf(p -> p.getTitulo().equals(titulo));
+        guardarPiezas(piezas); // Guarda después de eliminar
     }
 
     public static void guardarPiezas(List<Pieza> piezas) {
@@ -64,56 +41,31 @@ public class Inventario {
     }
 
     public static List<Pieza> consultarInventario() {
-        piezas.clear(); // Clear the current in-memory list
+        List<Pieza> nuevasPiezas = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                String[] datos = linea.split(",");
-                piezas.add(new Pieza(
-                    datos[0], // titulo
-                    datos[1], // anio
-                    datos[2], // autores
-                    datos[3], // lugarCreacion
-                    Boolean.parseBoolean(datos[4]), // disponibilidadVenta
-                    new ArrayList<>(), // propietariosAnteriores
-                    datos[5], // propietarioActual
-                    datos[6], // ubicacionActual
-                    Double.parseDouble(datos[7]) // precio
-                ));
+                nuevasPiezas.add(crearPiezaDesdeDatos(linea.split(",")));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ArrayList<>(piezas);
+        return nuevasPiezas;
     }
 
-    public static Pieza buscarPiezaPorTitulo(String titulo) {
-        return piezas.stream()
-                .filter(p -> p.getTitulo().equals(titulo))
-                .findFirst()
-                .orElse(null);
-    }
+    private static Pieza crearPiezaDesdeDatos(String[] datos) {
+        String titulo = datos[0];
+        String anio = datos[1];
+        String autores = datos[2];
+        String lugarCreacion = datos[3];
+        boolean disponibilidadVenta = Boolean.parseBoolean(datos[4]);
+        String propietarioActual = datos[5];
+        String ubicacionActual = datos[6];
+        double precio = Double.parseDouble(datos[7]);
 
-    public static List<Pieza> buscarPiezasPorAutor(String autor) {
-        return piezas.stream()
-                .filter(p -> p.getAutores().contains(autor))
-                .collect(Collectors.toList());
-    }
-
-    public static void actualizarEstadoVenta(String titulo, boolean disponibilidadVenta) {
-        Pieza pieza = buscarPiezaPorTitulo(titulo);
-        if (pieza != null) {
-            pieza.setDisponibilidadVenta(disponibilidadVenta);
-            guardarPiezas(piezas); // Update file to reflect the change
-        }
-    }
-
-    public static void actualizarPrecioPieza(String titulo, double nuevoPrecio) {
-        Pieza pieza = buscarPiezaPorTitulo(titulo);
-        if (pieza != null) {
-            pieza.setPrecio(nuevoPrecio);
-            guardarPiezas(piezas); // Update file to reflect the change
-        }
+        return new Pieza(titulo, anio, autores, lugarCreacion, disponibilidadVenta, new ArrayList<>(), propietarioActual, ubicacionActual, precio) {
+            // Implementación de métodos abstractos si es necesario
+        };
     }
 
     public static List<Pieza> listarPiezasDisponiblesParaVenta() {
@@ -126,9 +78,5 @@ public class Inventario {
         return piezas.stream()
                 .filter(Pieza::isSubastable)
                 .collect(Collectors.toList());
-    }
-
-    public static List<Pieza> getPiezas() {
-        return new ArrayList<>(piezas);
     }
 }

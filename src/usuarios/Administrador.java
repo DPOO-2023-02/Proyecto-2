@@ -198,7 +198,7 @@ public class Administrador extends Usuario {
     }
 
     public static void buscarPiezaPorTitulo(String titulo) {
-        List<Pieza> piezas = Inventario.getPiezas();
+        List<Pieza> piezas = Inventario.consultarInventario(); 
         for (Pieza pieza : piezas) {
             if (pieza.getTitulo().equals(titulo)) {
                 System.out.println("Pieza encontrada:");
@@ -209,21 +209,38 @@ public class Administrador extends Usuario {
         System.out.println("No se encontró ninguna pieza con título '" + titulo + "'.");
     }
 
-    public static List<Pieza> consultarInventario() {
+    public static void consultarInventario() {
         List<Pieza> piezas = Inventario.consultarInventario();
-        return piezas;
+        if (piezas.isEmpty()) {
+            System.out.println("El inventario está vacío.");
+        } else {
+            System.out.println("Inventario de piezas:");
+            for (Pieza pieza : piezas) {
+                System.out.println("Título: " + pieza.getTitulo() +
+                        "\nAño: " + pieza.getAnio() +
+                        "\nAutores: " + pieza.getAutores() +
+                        "\nLugar de creación: " + pieza.getLugarCreacion() +
+                        "\nDisponibilidad de venta: " + (pieza.isDisponibilidadVenta() ? "Disponible" : "No disponible") +
+                        "\nPropietario actual: " + pieza.getPropietarioActual() +
+                        "\nUbicación actual: " + pieza.getUbicacionActual() +
+                        "\nPrecio: $" + pieza.getPrecio() +
+                        "\nSubastable: " + (pieza.isSubastable() ? "Sí" : "No"));
+            }
+        }
     }
 
     public static void eliminarPieza() {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Ingrese el título de la pieza que desea eliminar:");
-        String titulo = scanner.nextLine();
-
-        Inventario.eliminarPieza(titulo);
-        System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
-        scanner.close();
+        try {
+            System.out.println("Ingrese el título de la pieza que desea eliminar:");
+            String titulo = scanner.nextLine();
+            Inventario.eliminarPieza(titulo);
+            System.out.println("La pieza con título '" + titulo + "' ha sido eliminada.");
+        } finally {
+            scanner.close(); 
+        }
     }
+
 }
     
 
