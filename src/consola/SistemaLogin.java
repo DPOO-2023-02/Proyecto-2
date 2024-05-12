@@ -71,15 +71,15 @@ public class SistemaLogin {
                     break;
                 case "comprador":
                 	System.out.println("¡Bienvenido, Comprador");
-                	MainComprador.menu();
+                	MainComprador.main();
                 	break;
                 case "operador":
                 	System.out.println("¡Bienvenido, operador");
-                	MainOperador.menu();
+                	MainOperador.main();
                 	break;
                 case "Propietario":
                 	System.out.println("¡Bienvenido, Propietario");
-                	MainPropietario.menu();
+                	MainPropietario.main();
                 	break;
                 default:
                     System.out.println("¡Bienvenido!");
@@ -108,10 +108,6 @@ public class SistemaLogin {
         System.out.println("Usuario registrado con éxito.");
     }
 
-<<<<<<< HEAD
-//Persistencia Usuario y contraseña
-=======
->>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de
     private static void cargarUsuarios() {
         try (Scanner fileScanner = new Scanner(new File(ARCHIVO_USUARIOS))) {
             while (fileScanner.hasNextLine()) {
