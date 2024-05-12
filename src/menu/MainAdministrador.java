@@ -15,7 +15,8 @@ public class MainAdministrador {
                 System.out.println("3. Consultar Inventario");
                 System.out.println("4. Volver al menú principal");
                 System.out.println("Seleccione una opción:");
-                
+                //confirmar venta
+                //devolucion pieza
                 int opcion = scanner.nextInt();
                 scanner.nextLine();
                 

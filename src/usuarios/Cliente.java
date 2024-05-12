@@ -35,7 +35,7 @@ public class Cliente extends Usuario {
 		System.out.println("Compra realizada con éxito. Restante en cartera: $" + dinero);
 	}
 
-	public static void consultarCartera(Scanner scanner) {
+	public static  void consultarCartera(Scanner scanner) {
 		System.out.println("Saldo disponible: $" + dinero);
 	}
 
