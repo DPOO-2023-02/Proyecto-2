@@ -37,7 +37,7 @@ public class Administrador extends Usuario {
         System.out.println("Introduzca la disponibilidad de la pieza (true/false): ");
         boolean disponibilidadVenta = Boolean.parseBoolean(scanner.nextLine());
 
-        System.out.println("Introduzca el nombre del propietario actual de la pieza: ");
+        System.out.println("Introduzca el propietario actual de la pieza. (Se sugiere que sea galeria): ");
         String propietarioActual = scanner.nextLine();
 
         System.out.println("Introduzca la ubicación actual de la pieza: ");
@@ -217,7 +217,7 @@ public class Administrador extends Usuario {
             System.out.println("Inventario de piezas:");
             for (Pieza pieza : piezas) {
                 System.out.println("===================" +
-                		"Título: " + pieza.getTitulo() +
+                		"\nTítulo: " + pieza.getTitulo() +
                         "\nAño: " + pieza.getAnio() +
                         "\nAutores: " + pieza.getAutores() +
                         "\nLugar de creación: " + pieza.getLugarCreacion() +

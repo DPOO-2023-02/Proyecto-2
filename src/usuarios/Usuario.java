@@ -4,13 +4,13 @@ public abstract class Usuario {
 	private String nombre;
 	private String id;
 	private String contrasenia;
-	protected int dinero;
+	static int dinero;
 
 	public Usuario(String nombre, String id, String contrasenia, int dinero) {
 		this.nombre=nombre;
 		this.id=id;
 		this.contrasenia=contrasenia;
-		this.dinero=dinero;
+		Usuario.dinero=dinero;
 	}	
 
 	public String getNombre() {
