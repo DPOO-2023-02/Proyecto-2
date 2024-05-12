@@ -16,7 +16,8 @@ public class MainOperador {
 
 	        int opcion = scanner.nextInt();
 	        scanner.nextLine(); // Consume the remaining newline character
-
+//este parcero no hizo el fucjing push ;d
+	        
 	        switch (opcion) {
 	            case 1:
 	                System.out.println("Cambiar estado pieza...");
