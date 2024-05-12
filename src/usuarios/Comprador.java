@@ -10,7 +10,6 @@ import venta.Venta;
 import venta.Subasta;
 
 public class Comprador extends Usuario {
-<<<<<<< HEAD
     
     private ArrayList<Venta> infoCompras;
     
@@ -96,7 +95,6 @@ public class Comprador extends Usuario {
 		return null;
 	}
 
-=======
 
 	private ArrayList<Venta> infoCompras;
 
@@ -104,7 +102,7 @@ public class Comprador extends Usuario {
 		super(nombre, id, contrasenia, dinero);
 		this.infoCompras = new ArrayList<>();
 	}
->>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de
+
 
 	public ArrayList<Venta> getInfoCompras() {
 		return infoCompras;
@@ -166,13 +164,11 @@ public class Comprador extends Usuario {
 		// Aquí puedes agregar la lógica de verificación del comprador y confirmación de la compra.
 		System.out.println("Compra realizada exitosamente para la pieza: " + pieza.getTitulo());
 	}
-<<<<<<< HEAD
-=======
+	
+	public Object consultarHistorialCompras() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
-public Object consultarHistorialCompras() {
-	// TODO Auto-generated method stub
-	return null;
-}
->>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de
-}
+
