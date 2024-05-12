@@ -151,4 +151,5 @@ public class SistemaLogin {
             e.printStackTrace();
         }
     }
+    private static void CogerDinero() {}
 }

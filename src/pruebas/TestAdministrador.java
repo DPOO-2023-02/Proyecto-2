@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import usuarios.Administrador;
+import piezas.Inventario;
 import piezas.Pieza;
 import persistencia.PersistenciaPiezas;
 
@@ -40,7 +41,7 @@ public class TestAdministrador {
         }
 
         // Suponiendo que hay un método para obtener la última pieza añadida a la persistencia
-        Pieza lastAddedPieza = PersistenciaPiezas.consultarInventario().get(PersistenciaPiezas.consultarInventario().size() - 1);
+        Pieza lastAddedPieza = Inventario.consultarInventario().get(Inventario.consultarInventario().size() - 1);
         assertNotNull(lastAddedPieza);
         assertEquals("La Gioconda", lastAddedPieza.getTitulo());
         assertEquals(6500000, lastAddedPieza.getPrecio());
@@ -69,7 +70,7 @@ public class TestAdministrador {
         }
 
         // Verificar que la pieza fue agregada correctamente
-        Pieza lastAddedPieza = PersistenciaPiezas.consultarInventario().get(PersistenciaPiezas.consultarInventario().size() - 1);
+        Pieza lastAddedPieza = Inventario.consultarInventario().get(Inventario.consultarInventario().size() - 1);
         assertEquals("The Starry Night", lastAddedPieza.getTitulo());
         assertEquals(100000000, lastAddedPieza.getPrecio());
         assertFalse(lastAddedPieza.isDisponibilidadVenta());
@@ -82,7 +83,7 @@ public class TestAdministrador {
         // No es posible verificar la salida de consola directamente,
         // deberíamos esperar que el sistema de persistencia devuelva una pieza con el título buscado
         // Este es un ejemplo de cómo podrías configurarlo
-        Pieza pieza = PersistenciaPiezas.buscarPiezaPorTitulo(expectedTitle);
+        Pieza pieza = Inventario.buscarPiezaPorTitulo(expectedTitle);
         assertNotNull(pieza);
         assertEquals(expectedTitle, pieza.getTitulo());
     }

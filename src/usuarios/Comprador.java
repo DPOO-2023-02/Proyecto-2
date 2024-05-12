@@ -9,7 +9,7 @@ import venta.Venta;
 import venta.Subasta;
 
 public class Comprador extends Usuario {
-    
+
 
 	private ArrayList<Venta> infoCompras;
 
@@ -45,6 +45,7 @@ public class Comprador extends Usuario {
 		int cantidad = scanner.nextInt();
 		dinero += cantidad;
 		System.out.println("Fondos añadidos. Nuevo saldo: $" + dinero);
+		System.out.println("Por temas de seguridad inicie sesion nuevamente");
 	}
 
 	public static void iniciarVenta(Scanner scanner) {
@@ -66,7 +67,7 @@ public class Comprador extends Usuario {
 				.orElse(null);
 
 		if (piezaSeleccionada != null) {
-			
+
 			realizarCompra(piezaSeleccionada);
 		} else {
 			System.out.println("No se encontró la pieza o no está disponible para la venta.");
@@ -80,9 +81,8 @@ public class Comprador extends Usuario {
 	}
 
 
-public Object consultarHistorialCompras() {
-	// TODO Auto-generated method stub
-	return null;
+	public Object consultarHistorialCompras() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
-}
->>>>>>> 5f1b4d96583ca493adb9eb8a3d1a1cb447c39b8f
