@@ -96,7 +96,6 @@ public class Comprador extends Usuario {
 	}
 
 
-
 	private ArrayList<Venta> infoCompras;
 
 	public Comprador(String nombre, String id, String contrasenia, int dinero) {

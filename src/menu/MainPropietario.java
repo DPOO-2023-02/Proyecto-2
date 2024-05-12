@@ -3,7 +3,7 @@ import java.util.Scanner;
 import usuarios.Propietario;
 public class MainPropietario {
 
-    public static void menu() {
+    public static void main() {
 	    Scanner scanner = new Scanner(System.in);
 
 	    while (true) {
