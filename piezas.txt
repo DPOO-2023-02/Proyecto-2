@@ -1,1 +1,0 @@
-Mona Lisa,1887,Da Vinci,Italia,true,Andres,Bogota,70000.0
