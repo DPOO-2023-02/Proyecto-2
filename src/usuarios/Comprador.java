@@ -12,7 +12,11 @@ import venta.Subasta;
 public class Comprador extends Usuario {
     
     private ArrayList<Venta> infoCompras;
-
+    
+    
+    static int dinero = 0;
+ 
+    
     public Comprador(String nombre, String id, String contrasenia, int dinero) {
         super(nombre, id, contrasenia, dinero);
         this.infoCompras = new ArrayList<>();
@@ -40,11 +44,12 @@ public class Comprador extends Usuario {
     }
 
     public static void agregarFondos() {
-    	Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese la cantidad de dinero que desea agregar a la cuenta:");
         int cantidad = scanner.nextInt();
         dinero += cantidad;
         System.out.println("Fondos añadidos. Nuevo saldo: $" + dinero);
+        System.out.println("Por motivos de seguridad inicie nuevamente sesion" );
     }
     
     public static void iniciarVenta(Scanner scanner) {
@@ -89,12 +94,10 @@ public class Comprador extends Usuario {
 		// TODO Auto-generated method stub
 		return null;
 	}
-<<<<<<< HEAD
+
 
 	public static void menuCompra(Scanner scanner) {
 		// TODO Auto-generated method stub
 		
 	}
-=======
->>>>>>> abd00d4911fbc7e433e17188ac92ba9e40b7c2a2
 }
