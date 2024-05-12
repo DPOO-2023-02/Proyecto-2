@@ -8,7 +8,6 @@ import menu.MainAdministrador;
 import menu.MainCajero;
 import menu.MainComprador;
 import menu.MainOperador;
-import menu.MainPropietario;
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -77,10 +76,6 @@ public class SistemaLogin {
                 	System.out.println("¡Bienvenido, operador");
                 	MainOperador.main();
                 	break;
-                case "Propietario":
-                	System.out.println("¡Bienvenido, Propietario");
-                	MainPropietario.main();
-                	break;
                 default:
                     System.out.println("¡Bienvenido!");
                 
@@ -124,8 +119,6 @@ public class SistemaLogin {
         }
     }
 
-
-//Seeeeeeh
     private static void guardarUsuarios() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO_USUARIOS))) {
             for (Map.Entry<String, String[]> entry : usuarios.entrySet()) {
@@ -151,5 +144,4 @@ public class SistemaLogin {
             e.printStackTrace();
         }
     }
-    private static void CogerDinero() {}
 }

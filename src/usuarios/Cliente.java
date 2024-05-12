@@ -8,12 +8,12 @@ import piezas.Pieza;
 import venta.Venta;
 import venta.Subasta;
 
-public class Comprador extends Usuario {
+public class Cliente extends Usuario {
 
 
 	private ArrayList<Venta> infoCompras;
 
-	public Comprador(String nombre, String id, String contrasenia, int dinero) {
+	public Cliente(String nombre, String id, String contrasenia, int dinero) {
 		super(nombre, id, contrasenia, dinero);
 		this.infoCompras = new ArrayList<>();
 	}
@@ -52,7 +52,6 @@ public class Comprador extends Usuario {
 		System.out.println("Listando piezas disponibles para venta directa:");
 		List<Pieza> piezasDisponibles = Inventario.consultarInventario();
 
-		// Filtrar y mostrar piezas disponibles para venta directa
 		piezasDisponibles.stream()
 		.filter(Pieza::isDisponibilidadVenta)
 		.forEach(pieza -> System.out.println("Título: " + pieza.getTitulo() +
@@ -73,8 +72,6 @@ public class Comprador extends Usuario {
 			System.out.println("No se encontró la pieza o no está disponible para la venta.");
 		}
 	}
-
-	// Método para simular la compra de una pieza.
 	private static void realizarCompra(Pieza pieza) {
 		// Aquí puedes agregar la lógica de verificación del comprador y confirmación de la compra.
 		System.out.println("Compra realizada exitosamente para la pieza: " + pieza.getTitulo());
@@ -84,5 +81,15 @@ public class Comprador extends Usuario {
 	public Object consultarHistorialCompras() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public static void vender() {
+		return;
+	}
+	public static void consultar_piezas() {
+		return;
+	}
+	public static void piezas_vendida() {
+		
 	}
 }

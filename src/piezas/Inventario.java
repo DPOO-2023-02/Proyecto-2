@@ -15,12 +15,12 @@ public class Inventario {
 
     public static void agregarPieza(Pieza pieza) {
         piezas.add(pieza);
-        guardarPiezas(piezas); // Guarda cada vez que se agrega una nueva pieza
+        guardarPiezas(piezas); 
     }
 
     public static void eliminarPieza(String titulo) {
         piezas.removeIf(p -> p.getTitulo().equals(titulo));
-        guardarPiezas(piezas); // Guarda después de eliminar
+        guardarPiezas(piezas);
     }
 
     public static void guardarPiezas(List<Pieza> piezas) {
@@ -64,7 +64,6 @@ public class Inventario {
         double precio = Double.parseDouble(datos[7]);
 
         return new Pieza(titulo, anio, autores, lugarCreacion, disponibilidadVenta, new ArrayList<>(), propietarioActual, ubicacionActual, precio) {
-            // Implementación de métodos abstractos si es necesario
         };
     }
 

@@ -12,11 +12,9 @@ import piezas.Pintura;
 import piezas.Video;
 
 public class Administrador extends Usuario {
-    public Boolean verificado;
 
     public Administrador(String nombre, String id, String contrasenia, Boolean verificado) {
         super(nombre, id, contrasenia, 0);
-        this.verificado = verificado;
     }
 
     public static void agregarPieza(Scanner scanner2) {
