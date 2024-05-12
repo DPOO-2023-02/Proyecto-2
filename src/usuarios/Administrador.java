@@ -13,8 +13,8 @@ import piezas.Video;
 
 public class Administrador extends Usuario {
 
-    public Administrador(String nombre, String id, String contrasenia, Boolean verificado) {
-        super(nombre, id, contrasenia, 0);
+    public Administrador(String nombre, String contrasenia, int dinero) {
+        super(nombre, contrasenia, 0);
     }
 
     public static void agregarPieza(Scanner scanner2) {

@@ -1,11 +1,10 @@
 package usuarios;
 
-import java.util.Date;
 
 public class Cajero extends Usuario{
 	public Boolean pagorealizado;
-	public Cajero(String nombre, String id, String contrasenia, Date cumpleanios, String rol) {
-		super(nombre, id, contrasenia,0);
+	public Cajero(String nombre, String contrasenia, double dinero) {
+		super(nombre, contrasenia,0);
 	}
 	public static boolean ConfirmarPago(Usuario usuario, double cantidad, boolean esSubasta) {
 		if (usuario.getDinero() >= cantidad) {

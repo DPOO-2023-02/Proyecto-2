@@ -2,13 +2,11 @@ package usuarios;
 
 public abstract class Usuario {
 	private String nombre;
-	private String id;
 	private String contrasenia;
 	static int dinero;
 
-	public Usuario(String nombre, String id, String contrasenia, int dinero) {
+	public Usuario(String nombre, String contrasenia, int dinero) {
 		this.nombre=nombre;
-		this.id=id;
 		this.contrasenia=contrasenia;
 		Usuario.dinero=dinero;
 	}	
@@ -20,14 +18,6 @@ public abstract class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}	
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getContrasenia() {
 		return contrasenia;

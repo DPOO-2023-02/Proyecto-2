@@ -11,14 +11,14 @@ public class MainComprador {
 		int opcion;
 
 		while (true) {
-			System.out.println("=== MENÚ COMPRADOR ===");
+			System.out.println("=== MENÚ CLIENTE ===");
 			System.out.println("1. Ver el menú de compra");
 			System.out.println("2. Consultar cartera");
 			System.out.println("3. Agregar fondos");
-			System.out.println("4. Volver al menú principal");
-			System.out.println("5. Piezas Vendidas");
-			System.out.println("6. Vender o Subastar Pieza");
-	        System.out.println("7. Mis Piezas");
+			System.out.println("4. Piezas Vendidas");
+			System.out.println("5. Vender o Subastar Pieza");
+	        System.out.println("6. Mis Piezas");
+	        System.out.println("7. Volver al menú principal");
 			System.out.println("Seleccione una opción:");
 
 			opcion = scanner.nextInt();

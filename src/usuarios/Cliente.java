@@ -10,11 +10,10 @@ import venta.Subasta;
 
 public class Cliente extends Usuario {
 
-
 	private ArrayList<Venta> infoCompras;
 
-	public Cliente(String nombre, String id, String contrasenia, int dinero) {
-		super(nombre, id, contrasenia, dinero);
+	public Cliente(String nombre, String contrasenia, int dinero) {
+		super(nombre, contrasenia, dinero);
 		this.infoCompras = new ArrayList<>();
 	}
 
@@ -35,7 +34,7 @@ public class Cliente extends Usuario {
 		System.out.println("Compra realizada con éxito. Restante en cartera: $" + dinero);
 	}
 
-	public static  void consultarCartera(Scanner scanner) {
+	public static  void consultarDinero(Scanner scanner) {
 		System.out.println("Saldo disponible: $" + dinero);
 	}
 

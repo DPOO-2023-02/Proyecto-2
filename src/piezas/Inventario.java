@@ -67,13 +67,13 @@ public class Inventario {
         };
     }
 
-    public static List<Pieza> listarPiezasDisponiblesParaVenta() {
+    public static List<Pieza> listaPiezasDisponiblesParaVenta() {
         return piezas.stream()
                 .filter(Pieza::isDisponibilidadVenta)
                 .collect(Collectors.toList());
     }
 
-    public static List<Pieza> listarPiezasSubastables() {
+    public static List<Pieza> listaPiezasSubastables() {
         return piezas.stream()
                 .filter(Pieza::isSubastable)
                 .collect(Collectors.toList());
