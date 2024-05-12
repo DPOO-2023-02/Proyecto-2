@@ -4,7 +4,7 @@ public abstract class Usuario {
 	private String nombre;
 	private String id;
 	private String contrasenia;
-	protected static int dinero;
+	static int dinero = 5000;
 
 	public Usuario(String nombre, String id, String contrasenia, int dinero) {
 		this.nombre=nombre;
@@ -42,7 +42,7 @@ public abstract class Usuario {
 	}
 
 	public void setDinero(int dinero) {
-		this.dinero = dinero;
+		Usuario.dinero = dinero;
 	}
 	public void restarDinero(double cantidad) {
         dinero -= cantidad;

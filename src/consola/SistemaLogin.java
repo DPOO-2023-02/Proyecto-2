@@ -97,21 +97,27 @@ public class SistemaLogin {
         String nuevoUsuario = scanner.nextLine();
         System.out.println("Ingrese la contraseña:");
         String nuevaContraseña = scanner.nextLine();
-        System.out.println("Ingrese el tipo de usuario (administrador/cajero/comprador/operador/propietario) : ");
+        System.out.println("Ingrese el tipo de usuario (administrador/cajero/comprador/operador/propietario):");
         String tipoUsuario = scanner.nextLine();
+        System.out.println("Ingrese la cantidad de dinero:");
+        double dinero = Double.parseDouble(scanner.nextLine());
 
-        usuarios.put(nuevoUsuario, new String[]{nuevaContraseña, tipoUsuario});
+        usuarios.put(nuevoUsuario, new String[]{nuevaContraseña, tipoUsuario, Double.toString(dinero)});
         guardarUsuarios();
 
         System.out.println("Usuario registrado con éxito.");
     }
 
+<<<<<<< HEAD
+//Persistencia Usuario y contraseña
+=======
+>>>>>>> 41c60ac087a56554b8242a3cbc4296cb8c63f3de
     private static void cargarUsuarios() {
         try (Scanner fileScanner = new Scanner(new File(ARCHIVO_USUARIOS))) {
             while (fileScanner.hasNextLine()) {
                 String linea = fileScanner.nextLine();
                 String[] partes = linea.split(",");
-                if (partes.length == 3) {
+                if (partes.length >= 3) { 
                     usuarios.put(partes[0], new String[]{partes[1], partes[2]});
                 } else {
                     System.err.println("Formato de usuario incorrecto en línea: " + linea);
@@ -121,17 +127,20 @@ public class SistemaLogin {
             System.err.println("Error al cargar usuarios: " + e.getMessage());
         }
     }
+
+
 //Seeeeeeh
     private static void guardarUsuarios() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARCHIVO_USUARIOS))) {
             for (Map.Entry<String, String[]> entry : usuarios.entrySet()) {
-                writer.write(entry.getKey() + "," + entry.getValue()[0] + "," + entry.getValue()[1]);
+                writer.write(entry.getKey() + "," + entry.getValue()[0] + "," + entry.getValue()[1] + "," + entry.getValue()[2]);
                 writer.newLine();
             }
         } catch (IOException e) {
             System.err.println("Error al guardar usuarios: " + e.getMessage());
         }
     }
+
 
     private static void crearArchivoTxt(String nombreArchivo) {
         try {
