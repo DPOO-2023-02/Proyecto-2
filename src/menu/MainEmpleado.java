@@ -1,7 +1,9 @@
 package menu;
 import usuarios.Cajero;
+import usuarios.Operador;
+
 import java.util.Scanner;
-public class MainCajero {
+public class MainEmpleado {
 
 	public static void main() {
 
@@ -11,6 +13,8 @@ public class MainCajero {
 	        System.out.println("=== MENÚ CAJERO ===");
 	        System.out.println("1. Confirmar pago");
 	        System.out.println("2. Cambiar comprador");
+	        System.out.println("3. Cambiar estado pieza");
+	        System.out.println("4. Registrar Pujas");
 	        System.out.println("3. Volver al menu principal");
 	        System.out.println("Seleccione una opción:");
 
@@ -29,6 +33,14 @@ public class MainCajero {
 	            case 3:
 	                System.out.println("Volviendo al menú principal...");
 	                return;
+	            case 4:
+	                System.out.println("Cambiar estado pieza...");
+	                Operador.cambiar_estado_piezas();
+	                break;
+	            case 5:
+	                System.out.println("Registrar Pujas...");
+	                Operador.registrarpujas();
+	                break;
 	            default:
 	                System.out.println("Opción no válida.");
 	        }

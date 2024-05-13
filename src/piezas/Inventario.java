@@ -66,6 +66,11 @@ public class Inventario {
         return new Pieza(titulo, anio, autores, lugarCreacion, disponibilidadVenta, new ArrayList<>(), propietarioActual, ubicacionActual, precio) {
         };
     }
+    
+    public static void limpiarInventario() {
+        piezas.clear(); 
+        guardarPiezas(new ArrayList<>());
+    }
 
     public static List<Pieza> listaPiezasDisponiblesParaVenta() {
         return piezas.stream()

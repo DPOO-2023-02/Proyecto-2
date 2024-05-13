@@ -5,9 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import menu.MainAdministrador;
-import menu.MainCajero;
-import menu.MainComprador;
-import menu.MainOperador;
+import menu.MainCliente;
+import menu.MainEmpleado;
 
 public class SistemaLogin {
     private static Map<String, String[]> usuarios = new HashMap<>();
@@ -64,17 +63,13 @@ public class SistemaLogin {
                     System.out.println("¡Bienvenido, Administrador!");
                     MainAdministrador.main();
                     break;
-                case "cajero":
-                    System.out.println("¡Bienvenido, Cajero!");
-                    MainCajero.main();
+                case "empleado":
+                    System.out.println("¡Bienvenido, Empleado!");
+                    MainEmpleado.main();
                     break;
-                case "comprador":
-                	System.out.println("¡Bienvenido, Comprador");
-                	MainComprador.main();
-                	break;
-                case "operador":
-                	System.out.println("¡Bienvenido, operador");
-                	MainOperador.main();
+                case "cliente":
+                	System.out.println("¡Bienvenido, Cliente!");
+                	MainCliente.main();
                 	break;
                 default:
                     System.out.println("¡Bienvenido!");
@@ -92,7 +87,7 @@ public class SistemaLogin {
         String nuevoUsuario = scanner.nextLine();
         System.out.println("Ingrese la contraseña:");
         String nuevaContraseña = scanner.nextLine();
-        System.out.println("Ingrese el tipo de usuario (administrador/cajero/comprador/operador/propietario):");
+        System.out.println("Ingrese el tipo de usuario (administrador/empleado/cliente):");
         String tipoUsuario = scanner.nextLine();
         System.out.println("Ingrese la cantidad de dinero:");
         double dinero = Double.parseDouble(scanner.nextLine());

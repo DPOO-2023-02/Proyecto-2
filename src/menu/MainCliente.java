@@ -3,7 +3,7 @@ package menu;
 import java.util.Scanner;
 import usuarios.Comprador;
 
-public class MainComprador {
+public class MainCliente {
 
 	public static void main() {
 		

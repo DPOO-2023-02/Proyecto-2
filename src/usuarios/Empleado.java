@@ -1,23 +1,40 @@
 package usuarios;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
 
 import piezas.Pieza;
 import venta.Subasta;
 
-public class Operador extends Usuario {
+public class Empleado extends Usuario{
+	public Boolean pagorealizado;
 	protected ArrayList<Double> listaPujas;
 	private Subasta subastaActual;
 	private Pieza pieza;
 	
-	public Operador(String nombre, String contrasenia, int dinero) {
-		super(nombre, contrasenia,0);
-		this.listaPujas = new ArrayList<Double>();
-		this.subastaActual = new Subasta(Subasta.valorInicial , Subasta.valorMinimo, pieza);
+	public Empleado(String nombre, String contrasenia, double dinero) {
+		super(nombre, contrasenia, dinero);
+		// TODO Auto-generated constructor stub
 	}
-	
+
+	public static boolean ConfirmarPago(Usuario usuario, double cantidad, boolean esSubasta) {
+		if (usuario.getDinero() >= cantidad) {
+			usuario.restarDinero(cantidad);
+			if (esSubasta) {
+				System.out.println("Pago confirmado desde subasta.");
+			} else {
+				System.out.println("Pago confirmado desde venta normal.");
+			}
+			return true;
+		} else {
+			System.out.println("Fondos insuficientes.");
+			return false;
+		}
+	}
+	public static void CambiarComprador() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	public void registrarPuja(double monto) {
         listaPujas.add(monto);
