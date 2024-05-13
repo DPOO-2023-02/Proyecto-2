@@ -1,7 +1,7 @@
 package menu;
 
 import java.util.Scanner;
-import usuarios.Comprador;
+import usuarios.Empleado;
 
 public class MainCliente {
 
@@ -26,25 +26,25 @@ public class MainCliente {
 
 			switch (opcion) {
 			case 1:
-				Comprador.iniciarVenta(scanner);
+				Cliente.iniciarVenta(scanner);
 				break;
 			case 2:
-				Comprador.consultarCartera(scanner);
+				Cliente.consultarCartera(scanner);
 				break;
 			case 3:
-				Comprador.agregarFondos();
+				Cliente.agregarFondos();
 				return;
 			case 4:
                 System.out.println("Vender o Subastar Pieza...");
-                Comprador.vender();
+                Cliente.vender();
                 break;
             case 5:
                 System.out.println("Mis Piezas...");
-                Comprador.consultar_piezas();
+                Cliente.consultar_piezas();
                 break;
             case 6:
                 System.out.println("Piezas Vendidas...");
-                Comprador.piezas_vendida();
+                Cliente.piezas_vendida();
                 break;
 			case 7:
 				System.out.println("Volviendo al menú principal...");
