@@ -11,12 +11,13 @@ import piezas.Pieza;
 import piezas.Pintura;
 import piezas.Video;
 import historial.UsuarioPiezas;
+
 public class Administrador extends Usuario {
 
 	public Administrador(String nombre, String contrasenia, int dinero) {
 		super(nombre, contrasenia, 0);
 	}
-
+	UsuarioPiezas admin = new UsuarioPiezas();
 	public static void agregarPieza(Scanner scanner2) {
 		Scanner scanner = new Scanner(System.in);
 
@@ -244,7 +245,10 @@ public class Administrador extends Usuario {
 	    admin.cargarUsuarios("usuarios.txt");
 	    admin.cargarPiezas("piezas.txt");
 	    admin.escribirArchivo("ruta_del_archivo_de_salida");
+	    System.out.println("No hay nada ya que no hay ningun usuario con una nueva adquisición...");;
 	}
+
+	
 }
 
 
