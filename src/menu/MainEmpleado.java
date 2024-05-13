@@ -1,6 +1,7 @@
 package menu;
-import usuarios.Cajero;
-import usuarios.Operador;
+
+import usuarios.Empleado;
+
 
 import java.util.Scanner;
 public class MainEmpleado {
@@ -24,22 +25,22 @@ public class MainEmpleado {
 	        switch (opcion) {
 	            case 1:
 	                System.out.println("Confirmar pago...");
-	                Cajero.ConfirmarPago();
+	                Empleado.ConfirmarPago();
 	                break;
 	            case 2:
 	                System.out.println("Cambiando comprador...");
-	                Cajero.CambiarComprador();
+	                Empleado.CambiarComprador();
 	                break;
 	            case 3:
 	                System.out.println("Volviendo al menú principal...");
 	                return;
 	            case 4:
 	                System.out.println("Cambiar estado pieza...");
-	                Operador.cambiar_estado_piezas();
+	                Empleado.cambiar_estado_piezas();
 	                break;
 	            case 5:
 	                System.out.println("Registrar Pujas...");
-	                Operador.registrarpujas();
+	                Empleado.registrarpujas();
 	                break;
 	            default:
 	                System.out.println("Opción no válida.");
