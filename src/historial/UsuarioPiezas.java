@@ -12,7 +12,7 @@ public class UsuarioPiezas {
         UsuarioPiezas admin = new UsuarioPiezas();
         admin.cargarUsuarios("Usuarios.txt");
         admin.cargarPiezas("Piezas.txt");
-        admin.escribirArchivo("Comprador.txt");
+        admin.escribirArchivo("Clientes.txt");
     }
 
     public void cargarUsuarios(String rutaUsuarios) {

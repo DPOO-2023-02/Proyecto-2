@@ -14,7 +14,7 @@ public class MainVenta {
         this.cliente = cliente;
     }
 
-    public void mostrarMenuCompra() {
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
         while (continuar) {

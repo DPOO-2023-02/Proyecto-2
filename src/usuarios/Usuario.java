@@ -27,11 +27,11 @@ public abstract class Usuario {
 		this.contrasenia = contrasenia;
 	}
 
-	public double getDinero() {
+	public static double getDinero() {
 		return dinero;
 	}
 
-	public void setDinero(double dinero) {
+	public static void setDinero(double dinero) {
 		Usuario.dinero = dinero;
 	}
 
