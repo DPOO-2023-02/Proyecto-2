@@ -244,6 +244,7 @@ public class Administrador extends Usuario {
 	    admin.cargarUsuarios("usuarios.txt");
 	    admin.cargarPiezas("piezas.txt");
 	    admin.escribirArchivo("ruta_del_archivo_de_salida");
-	}}
+	}
+}
 
 

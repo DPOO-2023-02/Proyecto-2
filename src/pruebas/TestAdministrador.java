@@ -101,4 +101,29 @@ public class TestAdministrador {
         assertTrue(outContent.toString().contains("Mona Lisa"));
         assertTrue(outContent.toString().contains("El Pensador"));
     }
+    
+    @Test
+    public void testBuscarPiezaPorTituloExistente() {
+    	String inputDataEscultutra = "El Pensador\n1902\nRodin\nFrancia\ntrue\nMuseo\nParis\n500000\n2\nBronce\nDetalle de instalación\ntrue\n200 kg\n2m x 1m x 1m";
+		System.setIn(new ByteArrayInputStream(inputDataEscultutra.getBytes()));
+		Administrador.agregarPieza(new Scanner(System.in));
+    	
+    	String inputDataPieza = "Mona Lisa\n1887\nDa Vinci\nItalia\ntrue\nGaleria\nBogota\n70000\n1\nOleo\n2mx3m\nLienzo";
+		System.setIn(new ByteArrayInputStream(inputDataPieza.getBytes()));
+		Administrador.agregarPieza(new Scanner(System.in));
+
+        Administrador.buscarPiezaPorTitulo("Mona Lisa");
+        String expectedOutput = "Pieza encontrada:";
+        assertTrue(outContent.toString().contains(expectedOutput));
+    }
+
+    @Test
+    public void testBuscarPiezaPorTituloNoExistente() {
+    	System.setIn(new ByteArrayInputStream("Mona Lisa\n".getBytes()));
+        Administrador.eliminarPieza();
+
+        Administrador.buscarPiezaPorTitulo("Starry Night");
+        String expectedOutput = "No se encontró ninguna pieza con título 'Starry Night'.";
+        assertTrue(outContent.toString().contains(expectedOutput));
+    }
 }

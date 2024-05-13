@@ -19,7 +19,7 @@ public class Empleado extends Usuario{
 
 	public static boolean ConfirmarPago(Usuario usuario, double cantidad, boolean esSubasta) {
 		if (usuario.getDinero() >= cantidad) {
-			usuario.restarDinero(cantidad);
+			usuario.setDinero(cantidad);
 			if (esSubasta) {
 				System.out.println("Pago confirmado desde subasta.");
 			} else {
