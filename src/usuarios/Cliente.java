@@ -91,4 +91,9 @@ public class Cliente extends Usuario {
 	public static void piezas_vendida() {
 		
 	}
+
+	public static boolean ConfirmarPago(Cliente cliente, double precio, boolean b) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

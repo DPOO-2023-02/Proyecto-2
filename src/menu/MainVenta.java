@@ -49,7 +49,7 @@ public class MainVenta {
         System.out.println("Mostrando piezas disponibles para la venta...");
         Pieza piezaSeleccionada = seleccionarPieza(scanner);
         if (piezaSeleccionada != null && piezaSeleccionada.isDisponibilidadVenta()) {
-            boolean exito = Cajero.ConfirmarPago(cliente, piezaSeleccionada.getPrecio(), false);
+            boolean exito = Cliente.ConfirmarPago(cliente, piezaSeleccionada.getPrecio(), false);
             if (exito) {
                 System.out.println("Compra realizada con éxito. Pieza comprada: " + piezaSeleccionada.getTitulo());
             } else {
