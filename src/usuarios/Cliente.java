@@ -35,9 +35,4 @@ public class Cliente extends Usuario {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public static boolean ConfirmarPago(Cliente cliente, double precio, boolean b) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

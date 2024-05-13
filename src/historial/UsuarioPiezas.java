@@ -6,7 +6,7 @@ import java.util.*;
 public class UsuarioPiezas {
 
     private Map<String, List<String>> piezasPorComprador = new HashMap<>();
-    private Set<String> usuariosValidos = new HashSet<>();
+    public Set<String> usuariosValidos = new HashSet<>();
 
     public static void main(String[] args) {
         UsuarioPiezas admin = new UsuarioPiezas();
