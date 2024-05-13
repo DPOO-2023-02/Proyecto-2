@@ -13,10 +13,9 @@ public class MainAdministrador {
                 System.out.println("1. Agregar Pieza a inventario");
                 System.out.println("2. Eliminar Pieza de inventario");
                 System.out.println("3. Consultar Inventario");
-                System.out.println("4. Volver al menú principal");
+                System.out.println("4. Ver historial de clientes");
+                System.out.println("5. Volver al menú principal");
                 System.out.println("Seleccione una opción:");
-                //confirmar venta
-                //devolucion pieza
                 int opcion = scanner.nextInt();
                 scanner.nextLine();
                 
@@ -30,6 +29,9 @@ public class MainAdministrador {
                         Administrador.consultarInventario();
                         break;
                     case 4:
+                        Administrador.Verhistorial_clientes();
+                        break;
+                    case 5:
                         System.out.println("Volviendo al menú principal...");
                         return;
                     default:
