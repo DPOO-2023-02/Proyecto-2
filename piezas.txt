@@ -1,0 +1,1 @@
+monalisa,1800,asd,as,true,galeria,si,10000.0
